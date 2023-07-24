@@ -1,0 +1,30 @@
+package com.example.filmography.feature.movielist.presentation
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.fragment.app.Fragment
+import com.example.filmography.feature.login.presentation.LoginFragment
+import com.example.filmography.feature.movielist.presentation.compose.MovieListScreen
+
+class MovieListFragment : Fragment() {
+
+    companion object {
+        fun newInstance(): Fragment = MovieListFragment()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                MovieListScreen()
+            }
+        }
+    }
+
+}

@@ -1,0 +1,3 @@
+package com.example.filmography.feature.moviedetails.presentation.compose
+
+class MovieDetailsPreview
