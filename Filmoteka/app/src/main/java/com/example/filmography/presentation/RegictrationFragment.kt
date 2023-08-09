@@ -149,7 +149,6 @@ fun  RegistrScreen() {
             Text(text = "Зарегистрироваться",
                 textAlign = TextAlign.Center)
         }
-
     }
 }
 
