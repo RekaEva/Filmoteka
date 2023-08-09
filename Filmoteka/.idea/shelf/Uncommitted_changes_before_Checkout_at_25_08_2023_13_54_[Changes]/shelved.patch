@@ -1,0 +1,490 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Filmography</string>\r\n    <string name=\"action_settings\">Settings</string>\r\n    <!-- Strings used for fragments for navigation -->\r\n    <string name=\"first_fragment_label\">First Fragment</string>\r\n    <string name=\"second_fragment_label\">Second Fragment</string>\r\n    <string name=\"next\">Next</string>\r\n    <string name=\"previous\">Previous</string>\r\n\r\n    <string name=\"hello_first_fragment\">Hello first fragment</string>\r\n    <string name=\"hello_second_fragment\">Hello second fragment. Arg: %1$s</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	
++++ b/app/src/main/res/values/strings.xml	
+@@ -9,4 +9,20 @@
+ 
+     <string name="hello_first_fragment">Hello first fragment</string>
+     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
++
++    <string name="WelcomeHeader">Welcome!</string>
++    <string name="DoLogIn">Login</string>
++    <string name="DoSignUp">Sign Up</string>
++
++    <string name="SignUpHeader">Please, sign up</string>
++    <string name="SetEmail">Enter your email</string>
++    <string name="SetLogin">Create login</string>
++    <string name="SetPassword">Create password</string>
++    <string name="RepeatPassword">Repeat password</string>
++    <string name="SignUpButton">Sign up</string>
++
++    <string name="LoginHeader">Please, login</string>
++    <string name="EnterLogin">Enter login</string>
++    <string name="EnterPassword">Enter password</string>
++    <string name="LoginButton">Log in</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/AutenticationFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/AutenticationFragment.kt b/app/src/main/java/com/example/filmography/presentation/view/LoginScreen.kt
+rename from app/src/main/java/com/example/filmography/presentation/screens/AutenticationFragment.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/LoginScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/AutenticationFragment.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/LoginScreen.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.screens
++package com.example.filmography.presentation.view
+ 
+ import android.os.Bundle
+ import android.view.LayoutInflater
+@@ -17,12 +17,15 @@
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.platform.ComposeView
++import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.text.input.KeyboardType
+ import androidx.compose.ui.text.input.PasswordVisualTransformation
+ import androidx.compose.ui.text.style.TextAlign
+ import androidx.compose.ui.unit.dp
+ import androidx.fragment.app.Fragment
++import com.example.filmography.R
+ import com.example.filmography.presentation.ui.headerTextStyle
++import com.example.filmography.presentation.viewModel.logged
+ 
+ class AutenticationFragment : Fragment() {
+     override fun onCreateView(
+@@ -50,7 +53,7 @@
+         horizontalAlignment = Alignment.CenterHorizontally,
+     ) {
+         Text(
+-            text = "Авторизация",
++            text = stringResource(R.string.LoginHeader),
+             style = headerTextStyle,
+             modifier = Modifier
+                 .fillMaxWidth()
+@@ -59,7 +62,7 @@
+         OutlinedTextField(
+             value = login,
+             onValueChange = { login = it },
+-            label = { Text("Введите логин") },
++            label = { Text(stringResource(R.string.EnterLogin)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Person,
+@@ -74,7 +77,7 @@
+         OutlinedTextField(
+             value = password,
+             onValueChange = { password = it },
+-            label = { Text("Введите пароль") },
++            label = { Text(stringResource(R.string.EnterPassword)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Lock,
+@@ -98,16 +101,9 @@
+                 .fillMaxWidth()
+                 .padding(bottom = 10.dp, top = 10.dp))
+         {
+-            Text(text = "Войти",
+-            textAlign = TextAlign.Center)
++            Text(text = stringResource(R.string.LoginButton),
++                textAlign = TextAlign.Center)
+         }
+ 
+     }
+-}
+-
+-fun logged(login : String, password : String)
+-{
+-   // тут логика в случает успешной и неуспешной автоирзации
+-}
+-
+-
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/RegictrationFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/RegictrationFragment.kt b/app/src/main/java/com/example/filmography/presentation/view/SignUpScreen.kt
+rename from app/src/main/java/com/example/filmography/presentation/screens/RegictrationFragment.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/SignUpScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/RegictrationFragment.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/SignUpScreen.kt	
+@@ -1,11 +1,9 @@
+-package com.example.filmography.presentation.screens
++package com.example.filmography.presentation.view
+ 
+-import android.content.Context
+ import android.os.Bundle
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.view.ViewGroup
+-import android.widget.Toast
+ import androidx.compose.foundation.background
+ import androidx.compose.foundation.layout.*
+ import androidx.compose.foundation.text.KeyboardOptions
+@@ -23,12 +21,15 @@
+ import androidx.compose.ui.graphics.Color
+ import androidx.compose.ui.platform.ComposeView
+ import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.text.input.KeyboardType
+ import androidx.compose.ui.text.input.PasswordVisualTransformation
+ import androidx.compose.ui.text.style.TextAlign
+ import androidx.compose.ui.unit.dp
+ import androidx.fragment.app.Fragment
++import com.example.filmography.R
+ import com.example.filmography.presentation.ui.headerTextStyle
++import com.example.filmography.presentation.viewModel.registr
+ 
+ class RegictrationFragment : Fragment() {
+     override fun onCreateView(
+@@ -59,7 +60,7 @@
+         horizontalAlignment = Alignment.CenterHorizontally,
+     ) {
+         Text(
+-            text = "Регистрация",
++            text = stringResource(R.string.SignUpHeader),
+             style = headerTextStyle,
+             modifier = Modifier
+                 .fillMaxWidth()
+@@ -68,7 +69,7 @@
+         OutlinedTextField(
+             value = email,
+             onValueChange = { email = it },
+-            label = { Text("Введите email") },
++            label = { Text(stringResource(R.string.SetEmail)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Email,
+@@ -83,7 +84,7 @@
+         OutlinedTextField(
+             value = login,
+             onValueChange = { login = it },
+-            label = { Text("Создайте логин") },
++            label = { Text(stringResource(R.string.SetLogin)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Person,
+@@ -99,7 +100,7 @@
+         OutlinedTextField(
+             value = password,
+             onValueChange = { password = it },
+-            label = { Text("Создайте пароль") },
++            label = { Text(stringResource(R.string.SetPassword)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Lock,
+@@ -121,7 +122,7 @@
+         OutlinedTextField(
+             value = password2,
+             onValueChange = { password2 = it },
+-            label = { Text("Повторите пароль") },
++            label = { Text(stringResource(R.string.RepeatPassword)) },
+             leadingIcon = {
+                 Icon(
+                     Icons.Default.Lock,
+@@ -146,18 +147,8 @@
+                 .padding(bottom = 10.dp,
+                     top = 10.dp))
+         {
+-            Text(text = "Зарегистрироваться",
++            Text(text = stringResource(R.string.SignUpButton),
+                 textAlign = TextAlign.Center)
+         }
+     }
+-}
+-
+-fun registr(login: String, password: String, password2: String, context: Context) {
+-
+-    if (password == password2){
+-        // подтвердить email
+-    }
+-    else{
+-        Toast.makeText(context, "Введеные пароли не совпадают", Toast.LENGTH_SHORT).show()
+-    }
+-}
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/viewModels/MainViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/viewModels/MainViewModel.kt b/app/src/main/java/com/example/filmography/presentation/viewModel/UserViewModel.kt
+rename from app/src/main/java/com/example/filmography/presentation/viewModels/MainViewModel.kt
+rename to app/src/main/java/com/example/filmography/presentation/viewModel/UserViewModel.kt
+--- a/app/src/main/java/com/example/filmography/presentation/viewModels/MainViewModel.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/viewModel/UserViewModel.kt	
+@@ -1,4 +1,19 @@
+-package com.example.filmography.presentation.viewModels
++package com.example.filmography.presentation.viewModel
++
++import android.content.Context
++import android.widget.Toast
++
++
++fun registr(login: String, password: String, password2: String, context: Context) {
+ 
+-class MainViewModel {
++    if (password == password2) {
++        // подтвердить email. обращение через domain  к data слою
++    } else {
++        Toast.makeText(context, "Введеные пароли не совпадают", Toast.LENGTH_SHORT).show()
++    }
++}
++
++fun logged(login : String, password : String)
++{
++    // тут логика в случает успешной и неуспешной автоирзации
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/StartPage.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/StartPage.kt b/app/src/main/java/com/example/filmography/presentation/view/StartPage.kt
+rename from app/src/main/java/com/example/filmography/presentation/screens/StartPage.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/StartPage.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/StartPage.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/StartPage.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.screens
++package com.example.filmography.presentation.view
+ 
+ import androidx.compose.foundation.BorderStroke
+ import androidx.compose.foundation.background
+@@ -10,16 +10,18 @@
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.graphics.Brush
+ import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.res.stringResource
+ import androidx.compose.ui.tooling.preview.Preview
+ import androidx.compose.ui.unit.dp
++import com.example.filmography.R
+ import com.example.filmography.presentation.ui.*
+ 
+ @Composable
+ fun StartPage(){
+-           Column(
+-               modifier = Modifier
+-                   .fillMaxSize()
+-                   .background(
++    Column(
++        modifier = Modifier
++            .fillMaxSize()
++            .background(
+                 brush = Brush.verticalGradient(
+                     colors = listOf(
+                         Teal200,
+@@ -29,53 +31,57 @@
+                     )
+                 )
+             ),
+-               horizontalAlignment = Alignment.CenterHorizontally,
++        horizontalAlignment = Alignment.CenterHorizontally,
+ 
+-           ){
+-               Spacer(modifier = Modifier
+-                   .fillMaxHeight(.3f))
+-               Column(
+-                   modifier = Modifier
+-                       .fillMaxWidth(.8f)
+-                       .background(
+-                           color = Color.White.copy(alpha = .4f),
+-                           shape = RoundedCornerShape(20.dp)
+-                       )
+-                   ,
+-                   horizontalAlignment = Alignment.CenterHorizontally
+-               ){
+-                   Text(text = "Добро пожаловать!",
+-                       style= welcomeText,
+-                       modifier = Modifier
+-                           .padding(top = 20.dp,
+-                               bottom = 25.dp))
+-                   OutlinedButton(
+-                       colors = ButtonDefaults.buttonColors(
+-                           backgroundColor = Teal400),
+-                       modifier = Modifier
+-                           .fillMaxWidth(.8f),
+-                       border = BorderStroke(
+-                           width = 1.dp,
+-                           color = Color.White),
+-                       onClick = { /*TODO*/ })
+-                   {
+-                       Text(text = "Войти",
+-                           color = Color.White)
+-                   }
+-                   OutlinedButton(
+-                       colors = ButtonDefaults.buttonColors(
+-                           backgroundColor = Teal400),
+-                       modifier = Modifier
+-                           .fillMaxWidth(.8f),
+-                       border =  BorderStroke(
+-                           width = 1.dp,
+-                           color = Color.White),
+-                       onClick = { /*TODO*/ })
+-                   {
+-                       Text(text = "Зарегистрироваться",
+-                           color = Color.White)
+-                   }
+-               }
+-           }
+-
++        ){
++        Spacer(modifier = Modifier
++            .fillMaxHeight(.3f))
++        Column(
++            modifier = Modifier
++                .fillMaxWidth(.8f)
++                .background(
++                    color = Color.White.copy(
++                        alpha = .4f
++                    ),
++                    shape = RoundedCornerShape(20.dp)
++                )
++            ,
++            horizontalAlignment = Alignment.CenterHorizontally
++        ){
++            Text(
++                text = stringResource(R.string.WelcomeHeader),
++                style= welcomeText,
++                modifier = Modifier
++                    .padding(top = 20.dp,
++                        bottom = 25.dp)
++            )
++            CustomButton(
++                text = stringResource(R.string.DoLogIn),
++                onClick = { /* TODO */ },
++            )
++            CustomButton(
++                text = stringResource(R.string.DoSignUp),
++                onClick = { /* TODO */ }
++            )
++
++        }
++    }
++}
++
++@Composable
++fun CustomButton (text : String, onClick : () -> Unit)
++{
++    OutlinedButton(
++        colors = ButtonDefaults.buttonColors(
++            backgroundColor = Teal400),
++        modifier = Modifier
++            .fillMaxWidth(.8f),
++        border = BorderStroke(
++            width = 1.dp,
++            color = Color.White),
++        onClick = onClick)
++    {
++        Text(text = stringResource(R.string.DoLogIn),
++            color = Color.White)
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/preview/RegistrScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.preview\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport com.example.filmography.presentation.screens.RegistrScreen\r\n\r\n@Preview\r\n@Composable\r\nfun RegistrScreenPreview() {\r\n    RegistrScreen()\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/preview/RegistrScreen.kt b/app/src/main/java/com/example/filmography/presentation/preview/RegistrScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/preview/RegistrScreen.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/preview/RegistrScreen.kt	
+@@ -2,7 +2,7 @@
+ 
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.tooling.preview.Preview
+-import com.example.filmography.presentation.screens.RegistrScreen
++import com.example.filmography.presentation.view.RegistrScreen
+ 
+ @Preview
+ @Composable
+Index: app/src/main/java/com/example/filmography/presentation/preview/AuthScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.preview\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport com.example.filmography.presentation.AuthScreen\r\n\r\n@Preview\r\n@Composable\r\nfun AuthScreenPreview() {\r\n    AuthScreen()\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/preview/AuthScreen.kt b/app/src/main/java/com/example/filmography/presentation/preview/AuthScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/preview/AuthScreen.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/preview/AuthScreen.kt	
+@@ -2,7 +2,8 @@
+ 
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.tooling.preview.Preview
+-import com.example.filmography.presentation.AuthScreen
++
++import com.example.filmography.presentation.view.AuthScreen
+ 
+ @Preview
+ @Composable
+Index: app/src/main/java/com/example/filmography/presentation/screens/LatestMoviesFragment.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/LatestMoviesFragment.kt b/app/src/main/java/com/example/filmography/presentation/view/LatestMoviesFragment.kt
+rename from app/src/main/java/com/example/filmography/presentation/screens/LatestMoviesFragment.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/LatestMoviesFragment.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/LatestMoviesFragment.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/LatestMoviesFragment.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.screens
++package com.example.filmography.presentation.view
+ 
+ class LatestMoviesFragment {
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/MoviesDetailsFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/MoviesDetailsFragment.kt b/app/src/main/java/com/example/filmography/presentation/view/MoviesDetailsFragment.kt
+rename from app/src/main/java/com/example/filmography/presentation/screens/MoviesDetailsFragment.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/MoviesDetailsFragment.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/MoviesDetailsFragment.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/MoviesDetailsFragment.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.screens
++package com.example.filmography.presentation.view
+ 
+ class MoviesDetailsFragment {
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/MainActivity.kt b/app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt
+rename from app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt
+--- a/app/src/main/java/com/example/filmography/presentation/MainActivity.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt	
+@@ -1,13 +1,13 @@
+-package com.example.filmography.presentation
++package com.example.filmography.presentation.view
+ 
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity
+ import com.example.filmography.R
+-import com.example.filmography.presentation.viewModels.MainViewModel
++import com.example.filmography.presentation.viewModel.MoviesViewModel
+ 
+ class MainActivity : AppCompatActivity() {
+ 
+-    private lateinit var viewModel: MainViewModel
++    private lateinit var viewModel: MoviesViewModel
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.activity_main)

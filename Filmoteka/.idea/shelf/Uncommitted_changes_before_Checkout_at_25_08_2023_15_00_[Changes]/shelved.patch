@@ -1,0 +1,16 @@
+Index: app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt b/app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+rename from app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt
+rename to app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+--- a/app/src/main/java/com/example/filmography/presentation/view/MainActivity.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/MainActivity.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.view
++package com.example.filmography.presentation
+ 
+ import android.os.Bundle
+ import androidx.appcompat.app.AppCompatActivity

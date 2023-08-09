@@ -1,0 +1,30 @@
+Index: app/src/main/java/com/example/filmography/presentation/StartPage.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/StartPage.kt b/app/src/main/java/com/example/filmography/presentation/view/StartPage.kt
+rename from app/src/main/java/com/example/filmography/presentation/StartPage.kt
+rename to app/src/main/java/com/example/filmography/presentation/view/StartPage.kt
+--- a/app/src/main/java/com/example/filmography/presentation/StartPage.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/view/StartPage.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation
++package com.example.filmography.presentation.view
+ 
+ import androidx.compose.foundation.BorderStroke
+ import androidx.compose.foundation.background
+Index: app/src/main/java/com/example/filmography/presentation/preview/StartPage.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.preview\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport com.example.filmography.presentation.StartPage\r\n\r\n@Preview\r\n@Composable\r\nfun StartPagePrev(){\r\n    StartPage()\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/preview/StartPage.kt b/app/src/main/java/com/example/filmography/presentation/preview/StartPage.kt
+--- a/app/src/main/java/com/example/filmography/presentation/preview/StartPage.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/preview/StartPage.kt	
+@@ -2,7 +2,7 @@
+ 
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.tooling.preview.Preview
+-import com.example.filmography.presentation.StartPage
++import com.example.filmography.presentation.view.StartPage
+ 
+ @Preview
+ @Composable

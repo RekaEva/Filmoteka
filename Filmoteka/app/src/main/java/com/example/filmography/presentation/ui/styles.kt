@@ -12,5 +12,13 @@ val headerTextStyle = TextStyle(
     textAlign = TextAlign.Center,
     fontSize = 25.sp,
     fontWeight = FontWeight.Bold,
-    color = Color.Red,
+    color = Teal200,
+)
+
+val welcomeText = TextStyle(
+    fontFamily = FontFamily.Monospace,
+    textAlign = TextAlign.Center,
+    fontSize = 25.sp,
+    fontWeight = FontWeight.Bold,
+    color = Color.DarkGray,
 )
