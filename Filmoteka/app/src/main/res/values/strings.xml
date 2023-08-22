@@ -9,4 +9,21 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="WelcomeHeader">Welcome!</string>
+    <string name="DoLogIn">Login</string>
+    <string name="DoSignUp">Sign Up</string>
+
+    <string name="SignUpHeader">Please, sign up</string>
+    <string name="SetEmail">Enter your email</string>
+    <string name="SetLogin">Create login</string>
+    <string name="SetPassword">Create password</string>
+    <string name="RepeatPassword">Repeat password</string>
+    <string name="SignUpButton">Sign up</string>
+
+    <string name="LoginHeader">Please, login</string>
+    <string name="EnterLogin">Enter login</string>
+    <string name="EnterPassword">Enter password</string>
+    <string name="LoginButton">Log in</string>
+
 </resources>
