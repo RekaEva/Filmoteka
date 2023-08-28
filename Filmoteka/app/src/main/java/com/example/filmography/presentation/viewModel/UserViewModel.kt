@@ -13,7 +13,6 @@ fun registr(login: String, password: String, password2: String, context: Context
     }
 }
 
+
 fun logged(login : String, password : String)
-{
-    // тут логика в случает успешной и неуспешной автоирзации
-}
+{}
