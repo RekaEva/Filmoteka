@@ -1,4 +1,4 @@
-package com.example.filmography.presentation
+package com.example.filmography.presentation.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,12 +17,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.filmography.R
 import com.example.filmography.presentation.ui.headerTextStyle
+import com.example.filmography.presentation.viewModel.logged
 
 class AutenticationFragment : Fragment() {
     override fun onCreateView(
@@ -50,7 +53,7 @@ fun AuthScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Авторизация",
+            text = stringResource(R.string.LoginHeader),
             style = headerTextStyle,
             modifier = Modifier
                 .fillMaxWidth()
@@ -59,7 +62,7 @@ fun AuthScreen() {
         OutlinedTextField(
             value = login,
             onValueChange = { login = it },
-            label = { Text("Введите логин") },
+            label = { Text(stringResource(R.string.EnterLogin)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Person,
@@ -74,7 +77,7 @@ fun AuthScreen() {
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Введите пароль") },
+            label = { Text(stringResource(R.string.EnterPassword)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -98,16 +101,11 @@ fun AuthScreen() {
                 .fillMaxWidth()
                 .padding(bottom = 10.dp, top = 10.dp))
         {
-            Text(text = "Войти",
-            textAlign = TextAlign.Center)
+            Text(
+                text = stringResource(R.string.LoginButton),
+                textAlign = TextAlign.Center
+            )
         }
 
     }
 }
-
-fun logged(login : String, password : String)
-{
-   // тут логика в случает успешной и неуспешной автоирзации
-}
-
-
