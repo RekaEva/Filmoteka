@@ -9,8 +9,8 @@ class MainActivity : AppCompatActivity() {
 
 //    @Inject
 //    lateinit var userModelFactory: ViewModelFactory
-
-
+//
+//
 //    private val loginViewModel by lazy {
 //        ViewModelProvider(this, ViewModelFactory)[LoginViewModel::class.java]
 //    }
