@@ -9,16 +9,20 @@ import androidx.fragment.app.Fragment
 import com.example.filmography.feature.login.presentation.compose.LoginScreen
 
 class LoginFragment : Fragment() {
+
+    companion object {
+        fun newInstance(): Fragment = LoginFragment()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        println("Start login Page")
         return ComposeView(requireContext()).apply {
             setContent {
                 LoginScreen()
             }
         }
     }
-
 }

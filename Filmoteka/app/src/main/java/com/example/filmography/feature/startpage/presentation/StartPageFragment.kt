@@ -10,6 +10,10 @@ import com.example.filmography.feature.startpage.presentation.compose.StartPage
 
 
 class StartPageFragment : Fragment() {
+
+    companion object {
+        fun newInstance(): Fragment = StartPageFragment()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
