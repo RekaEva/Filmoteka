@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.login.presentation.compose.LoginScreen
+import com.github.terrakok.cicerone.NavigatorHolder
 
 class LoginFragment : Fragment() {
 
