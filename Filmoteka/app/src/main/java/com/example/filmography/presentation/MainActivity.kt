@@ -1,13 +1,10 @@
 package com.example.filmography.presentation
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.PackageManagerCompat.LOG_TAG
 import com.example.filmography.R
 import com.example.filmography.data.Screens
 import com.example.filmography.di.AppComponent
-import com.example.filmography.di.ComponentManager
 import com.example.filmography.di.ComponentManager.appComponent
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
@@ -26,8 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val component: AppComponent by lazy {
         appComponent
     }
-//
-// !
+
     private val navigatorHolder: NavigatorHolder by lazy {
         component.navigationHolder()
     }

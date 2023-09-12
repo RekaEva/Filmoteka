@@ -8,7 +8,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.example.filmography.feature.startpage.presentation.compose.StartPage
 
-
 class StartPageFragment : Fragment() {
 
     companion object {
