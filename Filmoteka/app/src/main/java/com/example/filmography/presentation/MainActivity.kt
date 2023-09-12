@@ -3,7 +3,11 @@ package com.example.filmography.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filmography.R
-import com.example.filmography.di.ComponentManager
+import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager.appComponent
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.example.filmography.navigation.Screens
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,14 +19,30 @@ class MainActivity : AppCompatActivity() {
 //        ViewModelProvider(this, ViewModelFactory)[LoginViewModel::class.java]
 //    }
 
-    private val component by lazy {
-        ComponentManager.appComponent
+    private val component: AppComponent by lazy {
+        appComponent
     }
 
+    private val navigatorHolder: NavigatorHolder by lazy {
+        component.navigationHolder()
+    }
+
+    private val navigator = AppNavigator(this, R.id.container)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
-//        component.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-//        loginViewModel.method()
+        setContentView(R.layout.content_main)
+        component.router().newRootScreen(Screens.startpage())
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 }
