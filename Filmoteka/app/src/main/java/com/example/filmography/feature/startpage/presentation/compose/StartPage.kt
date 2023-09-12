@@ -90,7 +90,7 @@ fun CustomButton(text: String, onClick: () -> Unit) {
     )
     {
         Text(
-            text = stringResource(R.string.DoLogIn),
+            text = text,
             color = Color.White
         )
     }

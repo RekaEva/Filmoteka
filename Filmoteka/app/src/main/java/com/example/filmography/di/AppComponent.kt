@@ -1,6 +1,7 @@
 package com.example.filmography.di
 
 import android.content.Context
+import com.example.filmography.navigation.NavigationModule
 import com.example.filmography.presentation.MainActivity
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
