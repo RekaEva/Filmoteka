@@ -6,12 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.filmography.R
 import com.example.filmography.di.AppComponent
-import com.example.filmography.feature.login.presentation.model.login
 import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 

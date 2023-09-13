@@ -22,6 +22,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
+import com.example.filmography.di.AppComponent
 import com.example.filmography.feature.signup.presentation.model.register
 import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
@@ -129,9 +130,9 @@ fun SignUpScreen(component: AppComponent) {
 
         OutlinedButton(
             onClick = {
-           register(login, password, password2, context)
+                register(login, password, password2, context)
                 component.router().newRootScreen(Screens.login())
-                      },
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
