@@ -20,6 +20,9 @@ class LoginViewModel @Inject constructor(
 
 }
 
-fun login(login: String, password: String) {
+fun login(login: String, password: String): Boolean {
+    // тут проверка на правильность введеных данных
+    return login == "test" && password == "123"
+
 
 }

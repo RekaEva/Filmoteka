@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.signup.presentation.compose.SignUpScreen
 
-class SignUpFragment : Fragment() {
+class SignUpFragment(private val component: AppComponent) : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = SignUpFragment()
+        fun newInstance(): Fragment = SignUpFragment(ComponentManager.appComponent)
     }
 
     override fun onCreateView(
@@ -21,7 +23,7 @@ class SignUpFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                SignUpScreen()
+                SignUpScreen(component)
             }
         }
     }

@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.movielist.presentation.compose.MovieListScreen
 
-class MovieListFragment : Fragment() {
+class MovieListFragment(private val component: AppComponent) : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = MovieListFragment()
+        fun newInstance(): Fragment = MovieListFragment(ComponentManager.appComponent)
     }
 
     override fun onCreateView(
@@ -21,7 +23,7 @@ class MovieListFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MovieListScreen()
+                MovieListScreen(component)
             }
         }
     }

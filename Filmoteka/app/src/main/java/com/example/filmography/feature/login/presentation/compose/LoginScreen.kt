@@ -18,11 +18,13 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
+import com.example.filmography.di.AppComponent
 import com.example.filmography.feature.login.presentation.model.login
+import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(component: AppComponent) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -76,10 +78,15 @@ fun LoginScreen() {
         )
 
         OutlinedButton(
-            onClick = { login(login, password) },
+            onClick = {
+                val resultLog = login(login, password)
+                if (resultLog) {
+                    component.router().newRootScreen(Screens.movielist())
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 10.dp, top = 10.dp)
+                .padding(bottom = 10.dp, top = 10.dp),
         )
         {
             Text(
@@ -87,6 +94,5 @@ fun LoginScreen() {
                 textAlign = TextAlign.Center
             )
         }
-
     }
 }
