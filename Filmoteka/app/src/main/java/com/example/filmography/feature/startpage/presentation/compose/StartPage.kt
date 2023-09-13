@@ -16,13 +16,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.Teal200
 import com.example.filmography.presentation.ui.Teal400
 import com.example.filmography.presentation.ui.welcomeText
 
 @Composable
-fun StartPage(component: AppComponent) {
+fun StartPage() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,12 +67,12 @@ fun StartPage(component: AppComponent) {
             CustomButton(
                 text = stringResource(R.string.DoLogIn),
                 onClick = {
-                    component.router().newRootScreen(Screens.login())
+                    ComponentManager.appComponent.router().navigateTo(Screens.login())
                 },
             )
             CustomButton(
                 text = stringResource(R.string.DoSignUp),
-                onClick = { component.router().newRootScreen(Screens.signup()) }
+                onClick = { ComponentManager.appComponent.router().navigateTo(Screens.signup()) }
             )
 
         }

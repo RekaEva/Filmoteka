@@ -10,12 +10,11 @@ import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.signup.presentation.compose.SignUpScreen
 
-class SignUpFragment(private val component: AppComponent) : Fragment() {
+class SignUpFragment() : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = SignUpFragment(ComponentManager.appComponent)
+        fun newInstance(): Fragment = SignUpFragment()
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,7 +22,7 @@ class SignUpFragment(private val component: AppComponent) : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                SignUpScreen(component)
+                SignUpScreen()
             }
         }
     }

@@ -10,10 +10,10 @@ import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.login.presentation.compose.LoginScreen
 
-class LoginFragment(private val component: AppComponent) : Fragment() {
+class LoginFragment() : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = LoginFragment(ComponentManager.appComponent)
+        fun newInstance(): Fragment = LoginFragment()
     }
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class LoginFragment(private val component: AppComponent) : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                LoginScreen(component)
+                LoginScreen()
             }
         }
     }

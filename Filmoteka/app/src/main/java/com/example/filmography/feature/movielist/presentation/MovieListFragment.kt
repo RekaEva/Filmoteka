@@ -10,10 +10,10 @@ import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.movielist.presentation.compose.MovieListScreen
 
-class MovieListFragment(private val component: AppComponent) : Fragment() {
+class MovieListFragment() : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = MovieListFragment(ComponentManager.appComponent)
+        fun newInstance(): Fragment = MovieListFragment()
     }
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class MovieListFragment(private val component: AppComponent) : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MovieListScreen(component)
+                MovieListScreen()
             }
         }
     }

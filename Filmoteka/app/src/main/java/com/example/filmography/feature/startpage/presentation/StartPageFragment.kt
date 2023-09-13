@@ -11,10 +11,10 @@ import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.startpage.presentation.compose.StartPage
 
 
-class StartPageFragment(private val component: AppComponent) : Fragment() {
+class StartPageFragment() : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = StartPageFragment(ComponentManager.appComponent)
+        fun newInstance(): Fragment = StartPageFragment()
     }
 
     override fun onCreateView(
@@ -24,7 +24,7 @@ class StartPageFragment(private val component: AppComponent) : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                StartPage(component)
+                StartPage()
             }
         }
     }

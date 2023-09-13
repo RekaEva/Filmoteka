@@ -10,7 +10,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 object Screens {
     fun startpage() = FragmentScreen { StartPageFragment.newInstance() }
     fun login() = FragmentScreen { LoginFragment.newInstance() }
-    fun signup() = FragmentScreen { SignUpFragment.newInstance() }
+    fun signup() = FragmentScreen { SignUpFragment.newInstance()}
     fun movielist() = FragmentScreen { MovieListFragment.newInstance() }
     fun moviedetails() = FragmentScreen { MovieDetailsFragment.newInstance() }
 }

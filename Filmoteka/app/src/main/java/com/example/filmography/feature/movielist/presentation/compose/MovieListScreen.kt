@@ -9,11 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
-fun MovieListScreen(component: AppComponent) {
+fun MovieListScreen() {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -29,7 +30,7 @@ fun MovieListScreen(component: AppComponent) {
         )
         OutlinedButton(
             onClick = {
-                      component.router().newRootScreen(Screens.moviedetails())
+                ComponentManager.appComponent.router().navigateTo(Screens.moviedetails())
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -41,6 +42,5 @@ fun MovieListScreen(component: AppComponent) {
                 textAlign = TextAlign.Center
             )
         }
-
     }
 }
