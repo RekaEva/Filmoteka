@@ -13,7 +13,6 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 import android.util.Log
 import com.example.filmography.navigation.Screens
 
-
 class MainActivity : AppCompatActivity() {
 
 //    @Inject
@@ -34,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val navigator = AppNavigator(this, R.id.container)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
