@@ -66,12 +66,11 @@ fun StartPage(component: AppComponent) {
             CustomButton(
                 text = stringResource(R.string.DoLogIn),
                 onClick = {
-                          println("4444")
                           component.router().newRootScreen(Screens.login())},
             )
             CustomButton(
                 text = stringResource(R.string.DoSignUp),
-                onClick = { /* TODO */ }
+                onClick = {  component.router().newRootScreen(Screens.signup())}
             )
 
         }

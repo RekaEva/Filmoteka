@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.filmography.di.AppComponent
+import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.login.presentation.LoginFragment
 import com.example.filmography.feature.signup.presentation.compose.SignUpScreen
 
-class SignUpFragment : Fragment() {
+class SignUpFragment() : Fragment() {
 
     companion object {
         fun newInstance(): Fragment = SignUpFragment()
