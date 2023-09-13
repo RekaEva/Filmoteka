@@ -1,4 +1,4 @@
-package com.example.filmography.domain.usecases.userInfo
+package com.example.filmography.domain.useCases.userInfo
 
 interface UserInfoRepository {
     fun getUserLogin(): String

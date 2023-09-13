@@ -3,7 +3,7 @@ package com.example.filmography.feature.moviedetails.di
 import androidx.lifecycle.ViewModel
 import com.example.filmography.data.repository.MovieInfoRepositoryImpl
 import com.example.filmography.di.viewmodel.ViewModelKey
-import com.example.filmography.domain.usecases.movieInfo.MovieInfoRepository
+import com.example.filmography.domain.useCases.movieInfo.MovieInfoRepository
 import com.example.filmography.feature.moviedetails.presentation.model.MovieDetailsViewModel
 import dagger.Binds
 import dagger.Module

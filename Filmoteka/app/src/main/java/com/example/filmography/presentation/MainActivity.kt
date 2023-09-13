@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 //
 //
 //    private val loginViewModel by lazy {
-//        ViewModelProvider(this, ViewModelFactory)[LoginViewModel::class.java]
+//        ViewModelProvider(this, userModelFactory )[LoginViewModel::class.java]
 //    }
 
     private val component: AppComponent by lazy {

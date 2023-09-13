@@ -22,12 +22,12 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
+import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
 import com.example.filmography.feature.signup.presentation.model.register
-import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
-fun SignUpScreen(component: AppComponent) {
+fun SignUpScreen(signUpViewModel: SignUpViewModel) {
     var email by remember { mutableStateOf("") }
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -129,9 +129,9 @@ fun SignUpScreen(component: AppComponent) {
 
         OutlinedButton(
             onClick = {
-           register(login, password, password2, context)
-                component.router().newRootScreen(Screens.login())
-                      },
+                register(login, password, password2, context)
+                signUpViewModel.signUpButton()
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
