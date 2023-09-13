@@ -21,6 +21,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        println("Start login Page")
         return ComposeView(requireContext()).apply {
             setContent {
                 LoginScreen()

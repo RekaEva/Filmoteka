@@ -9,9 +9,10 @@ import androidx.fragment.app.Fragment
 import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.startpage.presentation.compose.StartPage
-import com.github.terrakok.cicerone.NavigatorHolder
+
 
 class StartPageFragment(private val component: AppComponent) : Fragment() {
+
     companion object {
         fun newInstance(): Fragment = StartPageFragment(ComponentManager.appComponent)
     }

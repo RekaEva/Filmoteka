@@ -12,6 +12,7 @@ import javax.inject.Singleton
 interface AppApi {
 
     fun context(): Context
+
     fun navigationHolder(): NavigatorHolder
     fun router(): Router
 }
