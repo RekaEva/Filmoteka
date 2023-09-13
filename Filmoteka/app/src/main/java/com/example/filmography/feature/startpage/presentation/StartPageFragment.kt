@@ -16,6 +16,7 @@ class StartPageFragment(private val component: AppComponent) : Fragment() {
     companion object {
         fun newInstance(): Fragment = StartPageFragment(ComponentManager.appComponent)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
