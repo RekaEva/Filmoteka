@@ -6,25 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.movielist.presentation.compose.MovieListScreen
 import com.example.filmography.feature.movielist.presentation.model.MovieListViewModel
 import javax.inject.Inject
 
-class MovieListFragment() : Fragment() {
+class MovieListFragment : Fragment() {
 
     companion object {
         fun newInstance(): Fragment = MovieListFragment()
     }
 
-//    @Inject
-//    lateinit var mlViewModel : MovieListViewModel
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        ComponentManager.createMovieListComponent().inject(this)
-//    }
+    @Inject
+    lateinit var mlViewModel: MovieListViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ComponentManager.createMovieListComponent().inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,10 +32,8 @@ class MovieListFragment() : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MovieListScreen()
-//                MovieListScreen(mlViewModel)
+                MovieListScreen(mlViewModel)
             }
         }
     }
-
 }

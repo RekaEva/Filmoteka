@@ -7,4 +7,13 @@ import javax.inject.Inject
 
 
 class StartPageViewModel @Inject constructor(
-) : ViewModel()
+) : ViewModel() {
+    fun pressLogin() {
+        ComponentManager.appComponent.router().navigateTo(Screens.login())
+    }
+
+    fun pressSignUp() {
+        ComponentManager.appComponent.router().navigateTo(Screens.signup())
+    }
+
+}

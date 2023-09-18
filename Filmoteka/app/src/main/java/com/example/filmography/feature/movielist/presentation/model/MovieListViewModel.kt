@@ -14,8 +14,7 @@ class MovieListViewModel @Inject constructor(
         return movieList()
     }
 
-    fun showDetailsButton()
-    {
+    fun showDetailsButton() {
         ComponentManager.appComponent.router().navigateTo(Screens.moviedetails())
     }
 }

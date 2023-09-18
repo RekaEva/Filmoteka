@@ -1,14 +1,9 @@
 package com.example.filmography.data.repository
 
-import com.example.filmography.data.database.users.UserInfoDatabase
-import com.example.filmography.data.remote.MovieRemouteSource
 import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import javax.inject.Inject
 
-class UserInfoRepositoryImpl @Inject constructor(
-    private val localDataSource: UserInfoDatabase,
-    private val remouteSource: MovieRemouteSource
-) : UserInfoRepository {
+class UserInfoRepositoryImpl @Inject constructor() : UserInfoRepository {
 
     override fun getUserLogin(): String {
         TODO("Not yet implemented")

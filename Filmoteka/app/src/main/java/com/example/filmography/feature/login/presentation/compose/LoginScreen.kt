@@ -18,16 +18,12 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
-import com.example.filmography.di.AppComponent
-import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.login.presentation.model.LoginViewModel
 import com.example.filmography.feature.login.presentation.model.login
-import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
-//fun LoginScreen(loginViewModel: LoginViewModel)
-fun LoginScreen() {
+fun LoginScreen(loginViewModel: LoginViewModel) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -85,8 +81,7 @@ fun LoginScreen() {
                 val resultLog = login(login, password)
                 if (resultLog) {
                     println("loginViewModel.logInButton()")
-//                   loginViewModel.logInButton()
-                    ComponentManager.appComponent.router().newRootScreen(Screens.movielist())
+                    loginViewModel.logInButton()
                 }
             },
             modifier = Modifier

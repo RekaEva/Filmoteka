@@ -12,7 +12,7 @@ import com.example.filmography.feature.moviedetails.presentation.model.MovieDeta
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
-fun MovieDetailsScreen(mdViewModel : MovieDetailsViewModel) {
+fun MovieDetailsScreen(mdViewModel: MovieDetailsViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -27,7 +27,7 @@ fun MovieDetailsScreen(mdViewModel : MovieDetailsViewModel) {
         )
         OutlinedButton(
             onClick = {
-                      println("qaz")
+                println("qaz")
                 mdViewModel.onBackButtonPressed()
             },
             modifier = Modifier

@@ -14,8 +14,7 @@ class MovieDetailsViewModel @Inject constructor(
         return movieDetails()
     }
 
-    fun onBackButtonPressed()
-    {
+    fun onBackButtonPressed() {
         ComponentManager.appComponent.router().backTo(Screens.movielist())
     }
 }
