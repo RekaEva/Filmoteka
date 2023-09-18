@@ -1,4 +1,4 @@
-package com.example.filmography.domain.usecases.movieInfo
+package com.example.filmography.domain.useCases.movieInfo
 
 import com.example.filmography.data.database.movie.MovieData
 import com.example.filmography.data.database.movie.MovieDetails

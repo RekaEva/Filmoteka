@@ -3,7 +3,7 @@ package com.example.filmography.feature.login.di
 import androidx.lifecycle.ViewModel
 import com.example.filmography.data.repository.UserInfoRepositoryImpl
 import com.example.filmography.di.viewmodel.ViewModelKey
-import com.example.filmography.domain.usecases.userInfo.UserInfoRepository
+import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import com.example.filmography.feature.login.presentation.model.LoginViewModel
 import dagger.Binds
 import dagger.Module

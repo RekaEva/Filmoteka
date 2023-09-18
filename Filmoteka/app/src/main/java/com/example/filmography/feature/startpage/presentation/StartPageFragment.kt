@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.startpage.presentation.compose.StartPage
+import javax.inject.Inject
 
 
 class StartPageFragment() : Fragment() {
@@ -16,6 +17,10 @@ class StartPageFragment() : Fragment() {
     companion object {
         fun newInstance(): Fragment = StartPageFragment()
     }
+
+
+//    @Inject
+//    lateinit var
 
     override fun onCreateView(
         inflater: LayoutInflater,

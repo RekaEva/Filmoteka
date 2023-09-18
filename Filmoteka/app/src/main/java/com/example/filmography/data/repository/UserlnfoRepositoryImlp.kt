@@ -2,7 +2,7 @@ package com.example.filmography.data.repository
 
 import com.example.filmography.data.database.users.UserInfoDatabase
 import com.example.filmography.data.remote.MovieRemouteSource
-import com.example.filmography.domain.usecases.userInfo.UserInfoRepository
+import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import javax.inject.Inject
 
 class UserInfoRepositoryImpl @Inject constructor(

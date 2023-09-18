@@ -1,6 +1,6 @@
-package com.example.filmography.domain.usecases.userInfo.signUp
+package com.example.filmography.domain.useCases.userInfo.signUp
 
-import com.example.filmography.domain.usecases.userInfo.UserInfoRepository
+import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import javax.inject.Inject
 
 class SetUserPassword @Inject constructor(

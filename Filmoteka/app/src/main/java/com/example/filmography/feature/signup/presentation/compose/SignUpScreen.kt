@@ -24,11 +24,13 @@ import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
+import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
 import com.example.filmography.feature.signup.presentation.model.register
 import com.example.filmography.navigation.Screens
 import com.example.filmography.presentation.ui.headerTextStyle
 
 @Composable
+//fun SignUpScreen(signUpViewModel: SignUpViewModel)
 fun SignUpScreen() {
     var email by remember { mutableStateOf("") }
     var login by remember { mutableStateOf("") }
@@ -133,6 +135,7 @@ fun SignUpScreen() {
             onClick = {
                 register(login, password, password2, context)
                 ComponentManager.appComponent.router().newRootScreen(Screens.login())
+//                signUpViewModel.signUpButton()
             },
             modifier = Modifier
                 .fillMaxWidth()

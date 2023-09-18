@@ -3,7 +3,7 @@ package com.example.filmography.feature.signup.di
 import androidx.lifecycle.ViewModel
 import com.example.filmography.data.repository.UserInfoRepositoryImpl
 import com.example.filmography.di.viewmodel.ViewModelKey
-import com.example.filmography.domain.usecases.userInfo.UserInfoRepository
+import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
 import dagger.Binds
 import dagger.Module

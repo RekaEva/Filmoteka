@@ -3,8 +3,8 @@ package com.example.filmography.di
 import android.content.Context
 import com.example.filmography.feature.login.di.DaggerLoginComponent
 import com.example.filmography.feature.login.di.LoginComponent
-import com.example.filmography.feature.moviedetails.di.DaggerMovieDetailsComponent
 import com.example.filmography.feature.moviedetails.di.MovieDetailsComponent
+import com.example.filmography.feature.moviedetails.di.DaggerMovieDetailsComponent
 import com.example.filmography.feature.movielist.di.DaggerMovieListComponent
 import com.example.filmography.feature.movielist.di.MovieListComponent
 import com.example.filmography.feature.signup.di.DaggerSignUpComponent
@@ -43,6 +43,7 @@ object ComponentManager {
     fun createStartPageComponent(): StartPageComponent {
         return DaggerStartPageComponent.builder().build()
     }
+
 
 }
 

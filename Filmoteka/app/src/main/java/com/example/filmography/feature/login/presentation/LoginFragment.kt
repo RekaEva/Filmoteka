@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.filmography.di.AppComponent
 import com.example.filmography.di.ComponentManager
 import com.example.filmography.feature.login.presentation.compose.LoginScreen
+import com.example.filmography.feature.login.presentation.model.LoginViewModel
+import com.example.filmography.feature.moviedetails.presentation.model.MovieDetailsViewModel
+import javax.inject.Inject
 
 class LoginFragment() : Fragment() {
 
@@ -16,6 +19,12 @@ class LoginFragment() : Fragment() {
         fun newInstance(): Fragment = LoginFragment()
     }
 
+//    @Inject
+//    lateinit var loginViewModel: LoginViewModel
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        ComponentManager.createLoginComponent().inject(this)
+//    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,6 +33,7 @@ class LoginFragment() : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 LoginScreen()
+//                LoginScreen(loginViewModel)
             }
         }
     }

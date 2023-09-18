@@ -2,6 +2,7 @@ package com.example.filmography.feature.login.di
 
 import com.example.filmography.di.AppApi
 import com.example.filmography.feature.login.presentation.LoginFragment
+import com.example.filmography.feature.login.presentation.model.LoginViewModel
 import dagger.Component
 
 @LoginScope
