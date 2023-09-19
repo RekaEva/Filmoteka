@@ -18,7 +18,6 @@ class StartPageFragment : Fragment() {
         fun newInstance(): Fragment = StartPageFragment()
     }
 
-
     @Inject
     lateinit var startPageViewModel: StartPageViewModel
 
