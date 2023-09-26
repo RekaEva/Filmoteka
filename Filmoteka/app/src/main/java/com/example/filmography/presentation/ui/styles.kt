@@ -22,3 +22,11 @@ val welcomeText = TextStyle(
     fontWeight = FontWeight.Bold,
     color = Color.DarkGray,
 )
+
+val messageText = TextStyle(
+    fontFamily = FontFamily.Default,
+    textAlign = TextAlign.Center,
+    fontSize = 15.sp,
+    fontWeight = FontWeight.Normal,
+    color = Color.Red,
+)

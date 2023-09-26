@@ -25,4 +25,11 @@
     <string name="EnterLogin">Enter login</string>
     <string name="EnterPassword">Enter password</string>
     <string name="LoginButton">Log in</string>
+
+    <string name="DataIncorrect">Check login or password</string>
+    <string name="LoginIncorrect">Login is incorrect</string>
+    <string name="PasswordIncorrect">Password is incorrect</string>
+    <string name="PasswordsNotSimilar"> The entered passwords do not match</string>
+    <string name="SignUpSuccessful"> Registration successful</string>
+
 </resources>

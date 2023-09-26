@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -19,13 +20,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.feature.login.presentation.model.LoginViewModel
-import com.example.filmography.feature.login.presentation.model.login
 import com.example.filmography.presentation.ui.headerTextStyle
+import com.example.filmography.presentation.ui.messageText
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel) {
+fun LoginScreen(
+    loginViewModel: LoginViewModel
+) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val context = LocalContext.current
+    val uiState by loginViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -75,14 +80,9 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
                 keyboardType = KeyboardType.Password
             )
         )
-
         OutlinedButton(
             onClick = {
-                val resultLog = login(login, password)
-                if (resultLog) {
-                    println("loginViewModel.logInButton()")
-                    loginViewModel.logInButton()
-                }
+                loginViewModel.login(login, password)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -94,5 +94,22 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
                 textAlign = TextAlign.Center
             )
         }
+        val errorMessage = if (!uiState.isDataCorrect) {
+            context.getString(R.string.DataIncorrect)
+        } else {
+            ""
+        }
+        Text(
+            text = errorMessage,
+            style = messageText,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 15.dp)
+        )
+
     }
 }
+
+
+
+

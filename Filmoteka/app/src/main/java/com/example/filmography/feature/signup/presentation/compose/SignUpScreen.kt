@@ -23,8 +23,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
-import com.example.filmography.feature.signup.presentation.model.register
 import com.example.filmography.presentation.ui.headerTextStyle
+import com.example.filmography.presentation.ui.messageText
 
 @Composable
 fun SignUpScreen(signUpViewModel: SignUpViewModel) {
@@ -33,6 +33,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
     var password by remember { mutableStateOf("") }
     var password2 by remember { mutableStateOf("") }
     val context = LocalContext.current
+    val uiState by signUpViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier
@@ -129,8 +130,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
 
         OutlinedButton(
             onClick = {
-                register(login, password, password2, context)
-                signUpViewModel.signUpButton()
+                signUpViewModel.register(login, password, password2, email)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -145,5 +145,17 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
                 textAlign = TextAlign.Center
             )
         }
+        val errorMessage = if (!uiState.isPasswordsSame) {
+            context.getString(R.string.PasswordsNotSimilar)
+        } else {
+            ""
+        }
+        Text(
+            text = errorMessage,
+            style = messageText,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 15.dp)
+        )
     }
 }
