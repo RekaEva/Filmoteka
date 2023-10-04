@@ -27,7 +27,6 @@ fun MovieDetailsScreen(mdViewModel: MovieDetailsViewModel) {
         )
         OutlinedButton(
             onClick = {
-                println("qaz")
                 mdViewModel.onBackButtonPressed()
             },
             modifier = Modifier

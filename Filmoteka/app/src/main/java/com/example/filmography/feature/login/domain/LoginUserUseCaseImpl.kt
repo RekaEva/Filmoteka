@@ -8,7 +8,9 @@ import javax.inject.Inject
 class LoginUserUseCaseImpl @Inject constructor(
     private val repository: UserInfoRepository
 ) : LoginUserUseCase {
+
     override suspend fun loginUser(login: String, password: String): Boolean {
         return repository.loginUser(login, password)
     }
 }
+

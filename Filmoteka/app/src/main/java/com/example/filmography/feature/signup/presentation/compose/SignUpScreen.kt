@@ -43,7 +43,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.SignUpHeader),
+            text = stringResource(R.string.sign_up_header),
             style = headerTextStyle,
             modifier = Modifier
                 .fillMaxWidth()
@@ -52,7 +52,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text(stringResource(R.string.SetEmail)) },
+            label = { Text(stringResource(R.string.set_email)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Email,
@@ -69,7 +69,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = login,
             onValueChange = { login = it },
-            label = { Text(stringResource(R.string.SetLogin)) },
+            label = { Text(stringResource(R.string.set_login)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Person,
@@ -87,7 +87,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text(stringResource(R.string.SetPassword)) },
+            label = { Text(stringResource(R.string.set_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -109,7 +109,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = password2,
             onValueChange = { password2 = it },
-            label = { Text(stringResource(R.string.RepeatPassword)) },
+            label = { Text(stringResource(R.string.repeat_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -141,21 +141,18 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         )
         {
             Text(
-                text = stringResource(R.string.SignUpButton),
+                text = stringResource(R.string.sign_up_button),
                 textAlign = TextAlign.Center
             )
         }
-        val errorMessage = if (!uiState.isPasswordsSame) {
-            context.getString(R.string.PasswordsNotSimilar)
-        } else {
-            ""
+        if (!uiState.isPasswordsSame) {
+            Text(
+                text = stringResource(R.string.passwords_not_similar),
+                style = messageText,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp)
+            )
         }
-        Text(
-            text = errorMessage,
-            style = messageText,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 15.dp)
-        )
     }
 }

@@ -20,11 +20,11 @@ class UserInfoRepositoryImpl @Inject constructor(private val userDao: UserDao) :
         TODO("Not yet implemented")
     }
 
-    override fun setUserLogin(email: String) {
+    override fun setUserLogin(login: String) {
         TODO("Not yet implemented")
     }
 
-    override fun setUserPassword(email: String) {
+    override fun setUserPassword(password: String) {
         TODO("Not yet implemented")
     }
 
@@ -35,10 +35,6 @@ class UserInfoRepositoryImpl @Inject constructor(private val userDao: UserDao) :
 
     override suspend fun loginUser(login: String, password: String): Boolean {
         val user = userDao.getUser(login)
-        if (user != null && user.password == password) {
-            return true
-        } else {
-            return false
-        }
+        return user != null && user.password == password
     }
 }

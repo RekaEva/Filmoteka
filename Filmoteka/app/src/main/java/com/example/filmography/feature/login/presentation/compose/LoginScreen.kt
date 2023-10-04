@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -29,7 +28,6 @@ fun LoginScreen(
 ) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val context = LocalContext.current
     val uiState by loginViewModel.uiState.collectAsState()
 
     Column(
@@ -38,7 +36,7 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.LoginHeader),
+            text = stringResource(R.string.login_header),
             style = headerTextStyle,
             modifier = Modifier
                 .fillMaxWidth()
@@ -47,7 +45,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = login,
             onValueChange = { login = it },
-            label = { Text(stringResource(R.string.EnterLogin)) },
+            label = { Text(stringResource(R.string.enter_login)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Person,
@@ -62,7 +60,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text(stringResource(R.string.EnterPassword)) },
+            label = { Text(stringResource(R.string.enter_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -90,23 +88,19 @@ fun LoginScreen(
         )
         {
             Text(
-                text = stringResource(R.string.LoginButton),
+                text = stringResource(R.string.login_button),
                 textAlign = TextAlign.Center
             )
         }
-        val errorMessage = if (!uiState.isDataCorrect) {
-            context.getString(R.string.DataIncorrect)
-        } else {
-            ""
+        if (!uiState.isDataCorrect) {
+            Text(
+                text = stringResource(R.string.data_incorrect),
+                style = messageText,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp)
+            )
         }
-        Text(
-            text = errorMessage,
-            style = messageText,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 15.dp)
-        )
-
     }
 }
 
