@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;add login database__&quot;">
+    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;add login database_1&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/domain/LoginUserUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/domain/LoginUserUseCaseImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/presentation/model/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/presentation/model/LoginViewModel.kt" afterDir="false" />
     </list>
@@ -85,12 +84,12 @@
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="&quot;something works&quot;" />
-        <option name="rewordedMessage" value="&quot;add login database&quot;" />
+        <option name="originalMessage" value="&quot;add login database__&quot;" />
+        <option name="rewordedMessage" value="&quot;add login database_&quot;" />
       </RewordedCommitMessageMapping>
     </option>
     <option name="currentCommit" value="1" />
-    <option name="onto" value="5bbf0ef69b1002d035559f3b8c26ee817d3b159f" />
+    <option name="onto" value="94c70b0bf86f95cd8a219f968c7c29c34d4b2022" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -414,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696426162536</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="&quot;add login database_1&quot;">
+      <created>1696431872479</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696431872479</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,7 +434,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Room" />
+                        <option value="Room" />
                       </list>
                     </value>
                   </entry>
@@ -456,7 +462,8 @@
     <MESSAGE value="&quot;add room, but not well&quot;" />
     <MESSAGE value="&quot;add login database_&quot;" />
     <MESSAGE value="&quot;add login database__&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;add login database__&quot;" />
+    <MESSAGE value="&quot;add login database_1&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;add login database_1&quot;" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

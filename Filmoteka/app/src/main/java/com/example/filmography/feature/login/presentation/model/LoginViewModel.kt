@@ -20,7 +20,6 @@ class LoginViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
-
     fun login(login: String, password: String) {
         viewModelScope.launch {
             val checkUser = logindb.loginUser(login, password)
@@ -39,7 +38,6 @@ class LoginViewModel @Inject constructor(
                 }
             }
         }
-
     }
 }
 
