@@ -11,14 +11,6 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 
 class MainActivity : AppCompatActivity() {
 
-//    @Inject
-//    lateinit var userModelFactory: ViewModelFactory
-//
-//
-//    private val loginViewModel by lazy {
-//        ViewModelProvider(this, userModelFactory )[LoginViewModel::class.java]
-//    }
-
     private val component: AppComponent by lazy {
         appComponent
     }

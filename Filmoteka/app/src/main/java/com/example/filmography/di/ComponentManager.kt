@@ -44,7 +44,6 @@ object ComponentManager {
         return DaggerStartPageComponent.builder().build()
     }
 
-
 }
 
 fun createAppComponent(context: Context): AppComponent {

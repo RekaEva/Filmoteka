@@ -23,8 +23,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
-import com.example.filmography.feature.signup.presentation.model.register
 import com.example.filmography.presentation.ui.headerTextStyle
+import com.example.filmography.presentation.ui.messageText
 
 @Composable
 fun SignUpScreen(signUpViewModel: SignUpViewModel) {
@@ -33,6 +33,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
     var password by remember { mutableStateOf("") }
     var password2 by remember { mutableStateOf("") }
     val context = LocalContext.current
+    val uiState by signUpViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier
@@ -42,7 +43,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.SignUpHeader),
+            text = stringResource(R.string.sign_up_header),
             style = headerTextStyle,
             modifier = Modifier
                 .fillMaxWidth()
@@ -51,7 +52,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text(stringResource(R.string.SetEmail)) },
+            label = { Text(stringResource(R.string.set_email)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Email,
@@ -68,7 +69,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = login,
             onValueChange = { login = it },
-            label = { Text(stringResource(R.string.SetLogin)) },
+            label = { Text(stringResource(R.string.set_login)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Person,
@@ -86,7 +87,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text(stringResource(R.string.SetPassword)) },
+            label = { Text(stringResource(R.string.set_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -108,7 +109,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         OutlinedTextField(
             value = password2,
             onValueChange = { password2 = it },
-            label = { Text(stringResource(R.string.RepeatPassword)) },
+            label = { Text(stringResource(R.string.repeat_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -129,8 +130,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
 
         OutlinedButton(
             onClick = {
-                register(login, password, password2, context)
-                signUpViewModel.signUpButton()
+                signUpViewModel.register(login, password, password2, email)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -141,8 +141,17 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
         )
         {
             Text(
-                text = stringResource(R.string.SignUpButton),
+                text = stringResource(R.string.sign_up_button),
                 textAlign = TextAlign.Center
+            )
+        }
+        if (!uiState.isPasswordsSame) {
+            Text(
+                text = stringResource(R.string.passwords_not_similar),
+                style = messageText,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp)
             )
         }
     }

@@ -19,13 +19,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.filmography.R
 import com.example.filmography.feature.login.presentation.model.LoginViewModel
-import com.example.filmography.feature.login.presentation.model.login
 import com.example.filmography.presentation.ui.headerTextStyle
+import com.example.filmography.presentation.ui.messageText
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel) {
+fun LoginScreen(
+    loginViewModel: LoginViewModel
+) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val uiState by loginViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -33,7 +36,7 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.LoginHeader),
+            text = stringResource(R.string.login_header),
             style = headerTextStyle,
             modifier = Modifier
                 .fillMaxWidth()
@@ -42,7 +45,7 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
         OutlinedTextField(
             value = login,
             onValueChange = { login = it },
-            label = { Text(stringResource(R.string.EnterLogin)) },
+            label = { Text(stringResource(R.string.enter_login)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Person,
@@ -57,7 +60,7 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text(stringResource(R.string.EnterPassword)) },
+            label = { Text(stringResource(R.string.enter_password)) },
             leadingIcon = {
                 Icon(
                     Icons.Default.Lock,
@@ -75,14 +78,9 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
                 keyboardType = KeyboardType.Password
             )
         )
-
         OutlinedButton(
             onClick = {
-                val resultLog = login(login, password)
-                if (resultLog) {
-                    println("loginViewModel.logInButton()")
-                    loginViewModel.logInButton()
-                }
+                loginViewModel.login(login, password)
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -90,9 +88,22 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
         )
         {
             Text(
-                text = stringResource(R.string.LoginButton),
+                text = stringResource(R.string.login_button),
                 textAlign = TextAlign.Center
+            )
+        }
+        if (!uiState.isDataCorrect) {
+            Text(
+                text = stringResource(R.string.data_incorrect),
+                style = messageText,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp)
             )
         }
     }
 }
+
+
+
+

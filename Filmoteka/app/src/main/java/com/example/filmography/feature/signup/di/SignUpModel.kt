@@ -1,9 +1,9 @@
 package com.example.filmography.feature.signup.di
 
 import androidx.lifecycle.ViewModel
-import com.example.filmography.data.repository.UserInfoRepositoryImpl
 import com.example.filmography.di.viewmodel.ViewModelKey
-import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
+import com.example.filmography.feature.signup.domain.RegistrUserUseCase
+import com.example.filmography.feature.signup.domain.RegistrUserUseCaseImpl
 import com.example.filmography.feature.signup.presentation.model.SignUpViewModel
 import dagger.Binds
 import dagger.Module
@@ -12,7 +12,7 @@ import dagger.multibindings.IntoMap
 @Module
 interface SignUpModule {
     @Binds
-    fun bindUserInfoRepository(impl: UserInfoRepositoryImpl): UserInfoRepository
+    fun bindRegistrUserUseCase(impl: RegistrUserUseCaseImpl): RegistrUserUseCase
 
     @SignUpScope
     @Binds

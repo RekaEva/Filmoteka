@@ -1,36 +1,43 @@
 package com.example.filmography.feature.login.presentation.model
 
 import androidx.lifecycle.ViewModel
-import com.example.filmography.di.ComponentManager
-import com.example.filmography.domain.useCases.userInfo.login.GetUserLogin
-import com.example.filmography.domain.useCases.userInfo.login.GetUserPassword
+import androidx.lifecycle.viewModelScope
+import com.example.filmography.feature.login.domain.LoginUserUseCaseImpl
 import com.example.filmography.navigation.Screens
+import com.github.terrakok.cicerone.Router
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
-    private val userLogin: GetUserLogin,
-    private val userPassword: GetUserPassword
+    private val logindb: LoginUserUseCaseImpl,
+    private val router: Router
 ) : ViewModel() {
 
-    fun getUserLogin(): String {
-        println("6969696")
-        return userLogin()
-    }
+    private val _uiState = MutableStateFlow(LoginUiState())
+    val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
-    fun getUserPassword(): String {
-        return userPassword()
-    }
-
-    fun logInButton() {
-        ComponentManager.appComponent.router().newRootScreen(Screens.movielist())
+    fun login(login: String, password: String) {
+        viewModelScope.launch {
+            val checkUser = logindb.loginUser(login, password)
+            if (checkUser) {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        isDataCorrect = true
+                    )
+                }
+                router.newRootScreen(Screens.movielist())
+            } else {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        isDataCorrect = false
+                    )
+                }
+            }
+        }
     }
 }
 
-fun login(login: String, password: String): Boolean {
-    // тут проверка на правильность введеных данных
-
-    return true
-//    return login == "test" && password == "123"
-
-
-}

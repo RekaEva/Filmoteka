@@ -54,7 +54,7 @@ fun StartPage(startPageViewModel: StartPageViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(R.string.WelcomeHeader),
+                text = stringResource(R.string.welcome_header),
                 style = welcomeText,
                 modifier = Modifier
                     .padding(
@@ -63,13 +63,13 @@ fun StartPage(startPageViewModel: StartPageViewModel) {
                     )
             )
             CustomButton(
-                text = stringResource(R.string.DoLogIn),
+                text = stringResource(R.string.do_log_in),
                 onClick = {
                     startPageViewModel.pressLogin()
                 },
             )
             CustomButton(
-                text = stringResource(R.string.DoSignUp),
+                text = stringResource(R.string.do_sign_up),
                 onClick = {
                     startPageViewModel.pressSignUp()
                 }
