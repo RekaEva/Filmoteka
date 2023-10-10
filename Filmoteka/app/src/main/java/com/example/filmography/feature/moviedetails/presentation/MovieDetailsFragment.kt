@@ -11,10 +11,12 @@ import com.example.filmography.feature.moviedetails.presentation.compose.MovieDe
 import com.example.filmography.feature.moviedetails.presentation.model.MovieDetailsViewModel
 import javax.inject.Inject
 
-class MovieDetailsFragment : Fragment() {
+class MovieDetailsFragment(id: Int) : Fragment() {
+
+    private val movieId = id
 
     companion object {
-        fun newInstance(): Fragment = MovieDetailsFragment()
+        fun newInstance(movieId: Int): Fragment = MovieDetailsFragment(movieId)
     }
 
     @Inject
@@ -31,7 +33,7 @@ class MovieDetailsFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                MovieDetailsScreen(mdViewModel)
+                MovieDetailsScreen(mdViewModel, movieId)
             }
         }
     }

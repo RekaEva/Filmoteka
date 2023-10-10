@@ -32,4 +32,7 @@
     <string name="passwords_not_similar"> The entered passwords do not match</string>
     <string name="sign_up_successful"> Registration successful</string>
 
+    <string name="movieInfo_year">Year: </string>
+    <string name="movieInfo_length">Length: </string>
+    <string name="movieInfo_age_rating">Age Rating: </string>
 </resources>
