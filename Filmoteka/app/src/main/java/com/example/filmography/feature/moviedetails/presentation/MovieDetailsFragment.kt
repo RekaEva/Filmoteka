@@ -40,5 +40,3 @@ class MovieDetailsFragment(id: Int) : Fragment() {
 }
 
 
-
-
