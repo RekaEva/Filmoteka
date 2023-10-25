@@ -15,6 +15,14 @@ val headerTextStyle = TextStyle(
     color = Teal200,
 )
 
+val subTextStyle = TextStyle(
+    fontFamily = FontFamily.Monospace,
+    textAlign = TextAlign.Center,
+    fontSize = 15.sp,
+    fontWeight = FontWeight.Bold,
+    color = Teal200,
+)
+
 val welcomeText = TextStyle(
     fontFamily = FontFamily.Monospace,
     textAlign = TextAlign.Center,

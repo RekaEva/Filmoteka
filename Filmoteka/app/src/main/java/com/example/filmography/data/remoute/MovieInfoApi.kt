@@ -14,4 +14,5 @@ interface MovieInfoApi {
 
     @GET("v1.3/movie/{id}")
     suspend fun getMovieDetails(@Path("id") id: Int): MovieDetails
+
 }

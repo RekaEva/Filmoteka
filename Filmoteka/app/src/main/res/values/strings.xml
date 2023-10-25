@@ -25,6 +25,8 @@
     <string name="enter_login">Enter login</string>
     <string name="enter_password">Enter password</string>
     <string name="login_button">Log in</string>
+    <string name="no_account">No account?</string>
+    <string name="create_account">Create new account</string>
 
     <string name="data_incorrect">Check login or password</string>
     <string name="login_incorrect">Login is incorrect</string>
@@ -35,4 +37,7 @@
     <string name="movieInfo_year">Year: </string>
     <string name="movieInfo_length">Length: </string>
     <string name="movieInfo_age_rating">Age Rating: </string>
+
+    <string name="update_button"> Try again </string>
+    <string name="internet_connection_error">Check your internet connection</string>
 </resources>

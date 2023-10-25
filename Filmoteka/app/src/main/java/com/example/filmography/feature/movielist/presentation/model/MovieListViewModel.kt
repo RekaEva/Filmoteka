@@ -23,18 +23,30 @@ class MovieListViewModel @Inject constructor(
     fun getMovieList() {
         viewModelScope.launch {
             try {
+                _uiState.emit(_uiState.value.copy(load = true))
                 val list = movieList.getMoviesList()
                 _uiState.update { currentState ->
                     currentState.copy(
-                        list = list
+                        list = list,
+                        load = false
                     )
                 }
-            } catch (_: Exception) {
+            } catch (errorMessage: Exception) {
+                _uiState.update { currentState ->
+                    currentState.copy(
+                        error = errorMessage,
+                        load = false
+                    )
+                }
             }
         }
     }
 
     fun showDetailsButton(id: Int) {
         router.navigateTo(Screens.moviedetails(id))
+    }
+
+    fun backToLoginScreen() {
+        router.newRootScreen(Screens.login())
     }
 }

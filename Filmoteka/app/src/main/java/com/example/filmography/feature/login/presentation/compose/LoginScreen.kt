@@ -30,6 +30,7 @@ import com.example.filmography.R
 import com.example.filmography.feature.login.presentation.model.LoginViewModel
 import com.example.filmography.presentation.ui.headerTextStyle
 import com.example.filmography.presentation.ui.messageText
+import com.example.filmography.presentation.ui.subTextStyle
 
 @Composable
 fun LoginScreen(
@@ -87,20 +88,10 @@ fun LoginScreen(
                 keyboardType = KeyboardType.Password
             )
         )
-        OutlinedButton(
-            onClick = {
-                loginViewModel.login(login, password)
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 10.dp, top = 10.dp),
+        CustomButtonLogin(
+            text = stringResource(R.string.login_button),
+            onClick = { loginViewModel.login(login, password) }
         )
-        {
-            Text(
-                text = stringResource(R.string.login_button),
-                textAlign = TextAlign.Center
-            )
-        }
         if (!uiState.isDataCorrect) {
             Text(
                 text = stringResource(R.string.data_incorrect),
@@ -110,9 +101,33 @@ fun LoginScreen(
                     .padding(bottom = 15.dp)
             )
         }
+        Text(
+            text = stringResource(R.string.no_account),
+            style = subTextStyle,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 45.dp)
+        )
+        CustomButtonLogin(
+            text = stringResource(R.string.create_account),
+            onClick = { loginViewModel.moveToSignUp() },
+        )
+
     }
 }
 
-
-
-
+@Composable
+fun CustomButtonLogin(text: String, onClick: () -> Unit) {
+    OutlinedButton(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 10.dp, top = 10.dp),
+    )
+    {
+        Text(
+            text = text,
+            textAlign = TextAlign.Center
+        )
+    }
+}
