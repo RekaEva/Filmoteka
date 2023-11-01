@@ -41,14 +41,14 @@ class NetworkModule {
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
             .addInterceptor(interceptor)
-            .addInterceptor(Interceptors())
+            .addInterceptor(ApiKeyInterceptor())
             .build()
     }
 
     @Provides
     @Singleton
     fun provideInterceptors(): Interceptor {
-        return Interceptors()
+        return ApiKeyInterceptor()
     }
 
     @Provides
