@@ -1,10 +1,23 @@
 package com.example.filmography.data.database.movie
 
+import com.google.gson.annotations.SerializedName
+
 data class MovieData(
-    val id: String,
-    val title: String,
-    val releaseYear: String,
-    val rating: Double,
-    val genre: String,
-    val posterUrl: String
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("name")
+    val name: String?,
+    @SerializedName("year")
+    val year: Int,
+    @SerializedName("poster")
+    val poster: Poster,
+    @SerializedName("shortDescription")
+    val shortDescription: String?
+)
+
+data class Poster(
+    @SerializedName("url")
+    val url: String,
+    @SerializedName("previewUrl")
+    val previewUrl: String
 )

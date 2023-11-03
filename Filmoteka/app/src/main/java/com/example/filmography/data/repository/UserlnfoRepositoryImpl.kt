@@ -7,27 +7,6 @@ import javax.inject.Inject
 
 class UserInfoRepositoryImpl @Inject constructor(private val userDao: UserDao) :
     UserInfoRepository {
-
-    override fun getUserLogin(): String {
-        TODO("Not yet implemented")
-    }
-
-    override fun getUserPassword(): String {
-        TODO("Not yet implemented")
-    }
-
-    override fun setUserEmail(email: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun setUserLogin(login: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun setUserPassword(password: String) {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun addUser(login: String, password: String, email: String) {
         val user = UserInfo(login, password, email)
         userDao.insert(user)

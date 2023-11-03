@@ -6,7 +6,6 @@ import com.example.filmography.feature.moviedetails.presentation.MovieDetailsFra
 import dagger.Component
 
 @MovieDetailsScope
-//здесь SessionApi (от AppApi)
 @Component(
     dependencies = [AppApi::class],
     modules = [MovieDetailsModule::class, ViewModelModule::class]

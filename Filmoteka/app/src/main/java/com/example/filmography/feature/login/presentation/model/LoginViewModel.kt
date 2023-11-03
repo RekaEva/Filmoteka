@@ -39,5 +39,9 @@ class LoginViewModel @Inject constructor(
             }
         }
     }
+
+    fun moveToSignUp() {
+        router.navigateTo(Screens.signup())
+    }
 }
 
