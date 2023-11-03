@@ -14,7 +14,13 @@ import javax.inject.Inject
 class MovieDetailsFragment : Fragment() {
 
     companion object {
-        fun newInstance(): Fragment = MovieDetailsFragment()
+        fun newInstance(movieId: Int): Fragment {
+            val arg = Bundle()
+            arg.putInt("movieId", movieId)
+            val fragment = MovieDetailsFragment()
+            fragment.arguments = arg
+            return fragment
+        }
     }
 
     @Inject
@@ -29,14 +35,11 @@ class MovieDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val movieId = requireArguments().getInt("movieId")
         return ComposeView(requireContext()).apply {
             setContent {
-                MovieDetailsScreen(mdViewModel)
+                MovieDetailsScreen(mdViewModel, movieId)
             }
         }
     }
 }
-
-
-
-

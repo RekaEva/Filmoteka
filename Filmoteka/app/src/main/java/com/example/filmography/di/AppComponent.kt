@@ -1,6 +1,8 @@
 package com.example.filmography.di
 
 import android.content.Context
+import com.example.filmography.data.network.NetworkModule
+import com.example.filmography.domain.useCases.movieInfo.MovieInfoRepository
 import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
 import com.example.filmography.navigation.NavigationModule
 import com.example.filmography.presentation.MainActivity
@@ -16,10 +18,11 @@ interface AppApi {
     fun navigationHolder(): NavigatorHolder
     fun router(): Router
     fun userInfoRepository(): UserInfoRepository
+    fun movieInfoRepo(): MovieInfoRepository
 }
 
 @Singleton
-@Component(modules = [AppModule::class, NavigationModule::class, UserDataModule::class])
+@Component(modules = [AppModule::class, NavigationModule::class, UserDataModule::class, NetworkModule::class])
 interface AppComponent : AppApi {
     fun inject(activity: MainActivity)
 

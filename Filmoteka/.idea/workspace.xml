@@ -9,17 +9,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;add login database_1&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/domain/LoginUserUseCaseImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/domain/LoginUserUseCaseImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/presentation/model/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/login/presentation/model/LoginViewModel.kt" afterDir="false" />
+    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;Split NetworkModule&quot;">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/Interceptors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/ApiKeyInterceptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/NetworkModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/MovieDetailsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/MovieDetailsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/compose/MovieDetailsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/compose/MovieDetailsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Ð¢Ð°ÑÑÑÐ½Ð°\.android\avd\Pixel_XL_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/home/tatyanar/.android/avd/Pixel_XL_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -68,6 +71,8 @@
       <list>
         <option value="Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Data Class" />
+        <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -75,7 +80,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="develop" />
+        <entry key="$PROJECT_DIR$/.." value="Api" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -84,12 +89,12 @@
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="&quot;add login database__&quot;" />
-        <option name="rewordedMessage" value="&quot;add login database_&quot;" />
+        <option name="originalMessage" value="&quot;add retrofit&quot;" />
+        <option name="rewordedMessage" value="&quot;add Api, add MovieListScreen and MovieDetailsScreen&quot;" />
       </RewordedCommitMessageMapping>
     </option>
     <option name="currentCommit" value="1" />
-    <option name="onto" value="94c70b0bf86f95cd8a219f968c7c29c34d4b2022" />
+    <option name="onto" value="0d4ffeaff6affe468564c31c57457a1a6ea22c7c" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -109,17 +114,27 @@
     &quot;android-custom-viewC:/Users/Татьяна/.gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-android/1.5.0/d096c6e1ab398990ce7c05e3003f79320b4235c/ui-android-1.5.0-sources.jar!/androidMain/androidx/compose/ui/platform/ComposeView.android.kt_SELECTED&quot;: &quot;AbstractComposeView&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AndroidLearnProjects/AndroidLab&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tatyanar/AndroidStudioProjects/CiceroneOfficial&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1698147930278&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\presentation\ui2" />
+      <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\data\database\movie" />
+      <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\feature\moviedetails\domain" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.filmography.data.remoute" />
+      <recent name="com.example.filmography.data" />
+      <recent name="com.example.filmography.feature.movielist.di" />
       <recent name="com.example.filmography.feature.login.presentation.model" />
       <recent name="com.example.filmography.feature.signup.presentation.model" />
-      <recent name="com.example.filmography.feature.signup.domain" />
-      <recent name="com.example.filmography.feature.login.domain" />
-      <recent name="com.example.filmography.domain.useCases.userInfo.signUp" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.filmography.data.database.movie" />
+      <recent name="com.example.filmography.feature.moviedetails.presentation.model" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app2">
@@ -133,7 +148,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -149,6 +163,8 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -156,14 +172,21 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java />
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -191,7 +214,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -207,6 +229,8 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -214,14 +238,21 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java />
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -249,7 +280,6 @@
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
       <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.example.filmography.feature.login.presentation.compose.LoginScreenPreviewKt.LoginScreenPreview" />
       <option name="MODE" value="specific_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
@@ -265,6 +295,8 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -272,14 +304,21 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java />
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -420,7 +459,84 @@
       <option name="project" value="LOCAL" />
       <updated>1696431872479</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add dependencies for api">
+      <created>1696933876799</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1696933876799</updated>
+    </task>
+    <task id="LOCAL-00016" summary="&quot;created a mess&quot;">
+      <created>1696945211069</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1696945211069</updated>
+    </task>
+    <task id="LOCAL-00017" summary="&quot;add retrofit(?)&quot;">
+      <created>1696953049988</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696953049988</updated>
+    </task>
+    <task id="LOCAL-00018" summary="&quot;add retrofit&quot;">
+      <created>1697026616233</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1697026616233</updated>
+    </task>
+    <task id="LOCAL-00019" summary="&quot;add retrofit_&quot;">
+      <created>1697036016009</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1697036016009</updated>
+    </task>
+    <task id="LOCAL-00020" summary="&quot;api example work&quot;">
+      <created>1697200419714</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1697200419714</updated>
+    </task>
+    <task id="LOCAL-00021" summary="&quot;api example work2&quot;">
+      <created>1697200493885</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1697200493885</updated>
+    </task>
+    <task id="LOCAL-00022" summary="&quot;Can get movieList from kinopoisk plus comments&quot;">
+      <created>1697452519417</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1697452519417</updated>
+    </task>
+    <task id="LOCAL-00023" summary="&quot;Can get movieList from kinopoisk&quot;">
+      <created>1697458574424</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1697458574424</updated>
+    </task>
+    <task id="LOCAL-00024" summary="&quot;add Api, add MovieListScreen and MovieDetailsScreen&quot;">
+      <created>1697709212808</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1697709212808</updated>
+    </task>
+    <task id="LOCAL-00025" summary="&quot;Split NetworkModule&quot;">
+      <created>1698054776077</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1698054776077</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -434,7 +550,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Room" />
+                        <option value="origin/Api" />
                       </list>
                     </value>
                   </entry>
@@ -447,9 +563,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;create di, merge ok&quot;" />
-    <MESSAGE value="&quot;start login page&quot;" />
-    <MESSAGE value="&quot;add navigation,login page&quot;" />
     <MESSAGE value="&quot;add screens&quot;" />
     <MESSAGE value="&quot;move to login page&quot;" />
     <MESSAGE value="&quot;move to login and sign_up pages&quot;" />
@@ -463,7 +576,19 @@
     <MESSAGE value="&quot;add login database_&quot;" />
     <MESSAGE value="&quot;add login database__&quot;" />
     <MESSAGE value="&quot;add login database_1&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;add login database_1&quot;" />
+    <MESSAGE value="add dependencies for api" />
+    <MESSAGE value="&quot;created a mess&quot;" />
+    <MESSAGE value="&quot;add retrofit(?)&quot;" />
+    <MESSAGE value="&quot;add retrofit&quot;" />
+    <MESSAGE value="&quot;add retrofit_&quot;" />
+    <MESSAGE value="&quot;api example work&quot;" />
+    <MESSAGE value="&quot;api example work2&quot;" />
+    <MESSAGE value="&quot;Can get movieList from kinopoisk plus comments&quot;" />
+    <MESSAGE value="&quot;Can get movieList from kinopoisk&quot;" />
+    <MESSAGE value="&quot;add LazyColumn in MovieList&quot;" />
+    <MESSAGE value="&quot;add Api, add MovieListScreen and MovieDetailsScreen&quot;" />
+    <MESSAGE value="&quot;Split NetworkModule&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Split NetworkModule&quot;" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

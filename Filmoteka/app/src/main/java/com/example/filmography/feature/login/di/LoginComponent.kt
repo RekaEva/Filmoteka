@@ -6,7 +6,10 @@ import com.example.filmography.feature.login.presentation.LoginFragment
 import dagger.Component
 
 @LoginScope
-@Component(dependencies = [AppApi::class], modules = [LoginModule::class, ViewModelModule::class])
+@Component(
+    dependencies = [AppApi::class],
+    modules = [LoginModule::class, ViewModelModule::class]
+)
 interface LoginComponent {
 
     fun inject(loginFragment: LoginFragment)
