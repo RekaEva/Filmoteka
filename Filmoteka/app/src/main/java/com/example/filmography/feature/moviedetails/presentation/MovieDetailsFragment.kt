@@ -35,7 +35,7 @@ class MovieDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val movieId = arguments?.getInt("movieId") ?: 0
+        val movieId = requireArguments().getInt("movieId")
         return ComposeView(requireContext()).apply {
             setContent {
                 MovieDetailsScreen(mdViewModel, movieId)

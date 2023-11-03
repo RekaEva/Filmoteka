@@ -21,19 +21,19 @@ class MovieDetailsViewModel @Inject constructor(
     fun getMovieDetails(movieId: Int) {
         viewModelScope.launch {
             try {
-                _uiState.emit(_uiState.value.copy(load = true))
+                _uiState.emit(_uiState.value.copy(isLoading = true))
                 val details = movieDetails.getMovieDetails(movieId)
                 _uiState.update { currentState ->
                     currentState.copy(
                         movieDetails = details,
-                        load = false
+                        isLoading = false
                     )
                 }
             } catch (errorMessage: Exception) {
                 _uiState.update { currentState ->
                     currentState.copy(
                         error = errorMessage,
-                        load = false
+                        isLoading = false
                     )
                 }
             }

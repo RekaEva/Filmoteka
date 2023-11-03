@@ -48,7 +48,7 @@ fun MovieDetailsScreen(
             )
         }
     ) {
-        if (uiState.load) {
+        if (uiState.isLoading) {
             Box(
                 modifier = Modifier
                     .fillMaxSize(),

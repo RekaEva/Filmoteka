@@ -5,5 +5,5 @@ import com.example.filmography.data.database.movie.MovieDetails
 data class MovieDetailsUiState(
     val movieDetails: MovieDetails? = null,
     val error: Exception? = null,
-    val load: Boolean = false
+    val isLoading: Boolean = false
 )
