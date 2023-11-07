@@ -18,7 +18,7 @@ class MovieDetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(MovieDetailsUiState())
     val uiState: StateFlow<MovieDetailsUiState> = _uiState.asStateFlow()
-    fun getMovieDetails(movieId: Int) {
+    fun loadMovieDetails(movieId: Int) {
         viewModelScope.launch {
             try {
                 _uiState.emit(_uiState.value.copy(load = true))

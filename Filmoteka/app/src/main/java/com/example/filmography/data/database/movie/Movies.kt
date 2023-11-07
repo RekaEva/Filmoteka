@@ -6,9 +6,9 @@ data class Movies(
     @SerializedName("docs")
     val moviesList: List<MovieData>,
     @SerializedName("page")
-    val page : Int = 1,
+    val page: Int = 1,
     @SerializedName("pageSize")
-    val pageSize : Int = 10,
+    val pageSize: Int = 10,
     @SerializedName("total")
-    val total : Int = 1
+    val total: Int = 1
 )

@@ -68,43 +68,45 @@ fun MovieListScreen(
         ) {
             when (data.loadState.refresh) {
                 is LoadState.Loading -> {
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier
-                                .fillMaxSize()
-                        )
-                        {
-                            CircularProgressIndicator()
-                        }
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxSize()
+                    )
+                    {
+                        CircularProgressIndicator()
+                    }
                 }
+
                 is LoadState.Error -> {
                     val errorState = data.loadState.refresh as LoadState.Error
-                        Column(
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+                            .padding(bottom = 10.dp)
+                            .wrapContentSize(Alignment.Center)
+                    ) {
+                        Text(
+                            text = errorMessage(errorState.error),
+                            style = MaterialTheme.typography.body2,
+                            textAlign = TextAlign.Center
+                        )
+                        OutlinedButton(
+                            onClick = { data.retry() },
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight()
-                                .padding(bottom = 10.dp)
-                                .wrapContentSize(Alignment.Center)
+                                .align(Alignment.CenterHorizontally)
+                                .padding(top = 20.dp)
                         ) {
                             Text(
-                                text = errorMessage(errorState.error),
-                                style = MaterialTheme.typography.body2,
+                                text = stringResource(R.string.update_button),
                                 textAlign = TextAlign.Center
                             )
-                            OutlinedButton(
-                                onClick = { data.retry() },
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally)
-                                    .padding(top = 20.dp)
-                            ) {
-                                Text(
-                                    text = stringResource(R.string.update_button),
-                                    textAlign = TextAlign.Center
-                                )
-                            }
                         }
+                    }
 //                    }
                 }
+
                 is LoadState.NotLoading -> {
                     LazyColumn {
                         items(data) { movie ->

@@ -6,6 +6,6 @@ import com.example.filmography.data.database.movie.MovieDetails
 import kotlinx.coroutines.flow.Flow
 
 interface MovieInfoRepository {
-    fun getMovieListPagging() : Flow<PagingData<MovieData>>
+    fun getMovieListPagging(): Flow<PagingData<MovieData>>
     suspend fun getMovieDetails(movieId: Int): MovieDetails
 }

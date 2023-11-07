@@ -5,5 +5,5 @@ import com.example.filmography.data.database.movie.MovieData
 import kotlinx.coroutines.flow.Flow
 
 interface GetMovieListUseCase {
-    fun getMovieListPagging() : Flow<PagingData<MovieData>>
+    fun getMovieListPagging(): Flow<PagingData<MovieData>>
 }
