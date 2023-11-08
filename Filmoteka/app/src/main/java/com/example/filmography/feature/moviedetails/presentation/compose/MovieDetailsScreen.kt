@@ -1,5 +1,6 @@
 package com.example.filmography.feature.moviedetails.presentation.compose
 
+
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -32,7 +33,7 @@ fun MovieDetailsScreen(
     val uiState by mdViewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {
-        mdViewModel.getMovieDetails(movieId)
+        mdViewModel.loadMovieDetails(movieId)
     }
     Scaffold(
         topBar = {
@@ -48,7 +49,7 @@ fun MovieDetailsScreen(
             )
         }
     ) {
-        if (uiState.isLoading) {
+        if (uiState.load) {
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -134,7 +135,7 @@ fun MovieDetailsScreen(
                         textAlign = TextAlign.Center
                     )
                     OutlinedButton(
-                        onClick = { mdViewModel.getMovieDetails(movieId) },
+                        onClick = { mdViewModel.loadMovieDetails(movieId) },
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .padding(top = 20.dp)
