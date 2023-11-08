@@ -6,7 +6,6 @@ import com.example.filmography.domain.useCases.movieInfo.MovieInfoRepository
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -37,18 +36,12 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
-            .addInterceptor(interceptor)
+            .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(ApiKeyInterceptor())
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideInterceptors(): Interceptor {
-        return ApiKeyInterceptor()
     }
 
     @Provides
@@ -58,4 +51,5 @@ class NetworkModule {
     }
 
 }
+
 

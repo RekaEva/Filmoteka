@@ -9,13 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;Split NetworkModule&quot;">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/Interceptors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/ApiKeyInterceptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/network/NetworkModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/MovieDetailsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/MovieDetailsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/compose/MovieDetailsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/compose/MovieDetailsScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsUiState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/moviedetails/presentation/model/MovieDetailsViewModel.kt" afterDir="false" />
+    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;add paging, fix commits&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Api" />
+        <entry key="$PROJECT_DIR$/.." value="Api+" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -89,12 +84,15 @@
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="&quot;add retrofit&quot;" />
-        <option name="rewordedMessage" value="&quot;add Api, add MovieListScreen and MovieDetailsScreen&quot;" />
+        <option name="originalMessage" value="&quot;paging (draft)&quot;" />
+        <option name="rewordedMessage" value="&quot;paging is working&quot;" />
       </RewordedCommitMessageMapping>
     </option>
     <option name="currentCommit" value="1" />
-    <option name="onto" value="0d4ffeaff6affe468564c31c57457a1a6ea22c7c" />
+    <option name="onto" value="29c472f9f1b1c896a4481cbf4b072acc71610743" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -114,16 +112,23 @@
     &quot;android-custom-viewC:/Users/Татьяна/.gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-android/1.5.0/d096c6e1ab398990ce7c05e3003f79320b4235c/ui-android-1.5.0-sources.jar!/androidMain/androidx/compose/ui/platform/ComposeView.android.kt_SELECTED&quot;: &quot;AbstractComposeView&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tatyanar/AndroidStudioProjects/CiceroneOfficial&quot;,
-    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1698147930278&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tatyanar/AndroidStudioProjects/Internship/Filmoteka/app/src/main/java/com/example/filmography/feature/movielist/presentation/compose&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1698833495837&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/movielist/presentation/compose" />
       <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\presentation\ui2" />
       <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\data\database\movie" />
       <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\feature\moviedetails\domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/filmography/data/remoute" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.filmography.data.remoute" />
@@ -536,8 +541,53 @@
       <option name="project" value="LOCAL" />
       <updated>1698054776077</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="&quot;paging (draft)&quot;">
+      <created>1698840155710</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1698840155710</updated>
+    </task>
+    <task id="LOCAL-00027" summary="&quot;paging (draft_)&quot;">
+      <created>1698908742460</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1698908742460</updated>
+    </task>
+    <task id="LOCAL-00028" summary="&quot;paging (draft_)2&quot;">
+      <created>1698925477052</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1698925477052</updated>
+    </task>
+    <task id="LOCAL-00029" summary="&quot;paging (draft_)2&quot;">
+      <created>1698932096567</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1698932096567</updated>
+    </task>
+    <task id="LOCAL-00030" summary="&quot;add paging, fix commits&quot;">
+      <created>1699368821186</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1699368821186</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -550,7 +600,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Api" />
+                        <option value="pagging" />
                       </list>
                     </value>
                   </entry>
@@ -563,10 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;add screens&quot;" />
-    <MESSAGE value="&quot;move to login page&quot;" />
-    <MESSAGE value="&quot;move to login and sign_up pages&quot;" />
-    <MESSAGE value="&quot;add ability to navigate between screens&quot;" />
     <MESSAGE value="&quot;add ability to navigate between screens &quot;" />
     <MESSAGE value="&quot;add ability to navigate between screens_ &quot;" />
     <MESSAGE value="&quot;add ability to navigate between screens2 &quot;" />
@@ -588,7 +634,11 @@
     <MESSAGE value="&quot;add LazyColumn in MovieList&quot;" />
     <MESSAGE value="&quot;add Api, add MovieListScreen and MovieDetailsScreen&quot;" />
     <MESSAGE value="&quot;Split NetworkModule&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Split NetworkModule&quot;" />
+    <MESSAGE value="&quot;paging (draft)&quot;" />
+    <MESSAGE value="&quot;paging (draft_)&quot;" />
+    <MESSAGE value="&quot;paging is working&quot;" />
+    <MESSAGE value="&quot;add paging, fix commits&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;add paging, fix commits&quot;" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
