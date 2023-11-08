@@ -104,7 +104,6 @@ fun MovieListScreen(
                             )
                         }
                     }
-//                    }
                 }
 
                 is LoadState.NotLoading -> {

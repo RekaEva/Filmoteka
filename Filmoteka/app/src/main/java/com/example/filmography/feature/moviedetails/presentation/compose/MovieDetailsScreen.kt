@@ -1,5 +1,6 @@
 package com.example.filmography.feature.moviedetails.presentation.compose
 
+
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState

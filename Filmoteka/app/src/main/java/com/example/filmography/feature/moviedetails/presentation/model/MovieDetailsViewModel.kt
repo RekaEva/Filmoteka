@@ -44,5 +44,3 @@ class MovieDetailsViewModel @Inject constructor(
         router.backTo(Screens.movielist())
     }
 }
-
-
