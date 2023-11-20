@@ -152,6 +152,15 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
                 textAlign = TextAlign.Center
             )
         }
+        if (!uiState.isLoginUnique) {
+            Text(
+                text = stringResource(R.string.login_already_exist),
+                style = messageText,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 15.dp)
+            )
+        }
         if (!uiState.isPasswordsSame) {
             Text(
                 text = stringResource(R.string.passwords_not_similar),
