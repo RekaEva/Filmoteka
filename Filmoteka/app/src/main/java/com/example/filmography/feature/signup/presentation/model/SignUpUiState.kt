@@ -1,6 +1,8 @@
 package com.example.filmography.feature.signup.presentation.model
 
 data class SignUpUiState(
-    val emailIsCheck: Boolean = true,
-    val isPasswordsSame: Boolean = true
+    var isLoginUnique: Boolean = true,
+    var isLoginValid: Boolean = true,
+    var isPasswordValid: Boolean = true,
+    var isPasswordsSame: Boolean = true
 )

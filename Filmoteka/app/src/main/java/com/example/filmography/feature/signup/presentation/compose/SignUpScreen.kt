@@ -40,6 +40,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var password2 by remember { mutableStateOf("") }
+
     val uiState by signUpViewModel.uiState.collectAsState()
 
     Column(
@@ -137,29 +138,43 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
 
         OutlinedButton(
             onClick = {
+                uiState.isPasswordValid = true
+                uiState.isLoginValid = true
+                uiState.isLoginUnique = true
+                uiState.isPasswordsSame = true
                 signUpViewModel.register(login, password, password2, email)
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(
-                    bottom = 10.dp,
-                    top = 10.dp
-                )
-        )
-        {
+                .padding(bottom = 10.dp, top = 10.dp)
+        ) {
             Text(
                 text = stringResource(R.string.sign_up_button),
                 textAlign = TextAlign.Center
             )
         }
+        if (!uiState.isLoginUnique) {
+            messageText(stringResource(R.string.login_already_exist))
+        }
+        if (!uiState.isLoginValid) {
+            messageText(stringResource(R.string.login_lenght_incorrect))
+        }
         if (!uiState.isPasswordsSame) {
-            Text(
-                text = stringResource(R.string.passwords_not_similar),
-                style = messageText,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 15.dp)
-            )
+            messageText(stringResource(R.string.passwords_not_similar))
+        }
+        if (!uiState.isPasswordValid) {
+            messageText(stringResource(R.string.password_len_incorrect))
         }
     }
+}
+
+@Composable
+fun messageText(text: String) {
+    Text(
+        text = text,
+        style = messageText,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 15.dp)
+    )
 }

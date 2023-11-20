@@ -9,8 +9,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;add paging, fix commits&quot;">
+    <list default="true" id="26418303-ea6d-4d93-b09f-6dd0c5560f66" name="Changes" comment="&quot;added icon&quot;">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/validation_user_data/CompositeValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/validation_user_data/LoginLengthValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/validation_user_data/PasswordLengthValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/validation_user_data/PasswordsIsSameValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/validation_user_data/SignUpValidator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/compose/SignUpScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/compose/SignUpScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/SignUpUiState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/SignUpUiState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/SignUpViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/signup/presentation/model/SignUpViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +77,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
         <option value="layoutResourceFile" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -75,7 +88,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Api+" />
+        <entry key="$PROJECT_DIR$/.." value="refactoring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -84,12 +97,12 @@
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
-        <option name="originalMessage" value="&quot;paging (draft)&quot;" />
-        <option name="rewordedMessage" value="&quot;paging is working&quot;" />
+        <option name="originalMessage" value="&quot;added icon&quot;" />
+        <option name="rewordedMessage" value="&quot;added icons&quot;" />
       </RewordedCommitMessageMapping>
     </option>
     <option name="currentCommit" value="1" />
-    <option name="onto" value="29c472f9f1b1c896a4481cbf4b072acc71610743" />
+    <option name="onto" value="1563a32ea126588fda91e3ebfeba46bd4342dff7" />
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -111,9 +124,10 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;android-custom-viewC:/Users/Татьяна/.gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui-android/1.5.0/d096c6e1ab398990ce7c05e3003f79320b4235c/ui-android-1.5.0-sources.jar!/androidMain/androidx/compose/ui/platform/ComposeView.android.kt_SELECTED&quot;: &quot;AbstractComposeView&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tatyanar/AndroidStudioProjects/Internship/Filmoteka/app/src/main/java/com/example/filmography/feature/movielist/presentation/compose&quot;,
-    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1698833495837&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tatyanar/AndroidStudioProjects/ExampleMovies&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1700570381304&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -122,6 +136,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/values-ru" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/example/filmography/feature/movielist/presentation/compose" />
       <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\presentation\ui2" />
       <recent name="C:\again\Filmoteka\app\src\main\java\com\example\filmography\data\database\movie" />
@@ -140,6 +155,9 @@
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.example.filmography.data.database.movie" />
       <recent name="com.example.filmography.feature.moviedetails.presentation.model" />
+    </key>
+    <key name="android.template.-244905870">
+      <recent name="com.example.filmography.feature.startpage.presentation.compose" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app2">
@@ -576,7 +594,42 @@
       <option name="project" value="LOCAL" />
       <updated>1699368821186</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="&quot;added russian language&quot;">
+      <created>1700464452364</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1700464452364</updated>
+    </task>
+    <task id="LOCAL-00032" summary="&quot;added russian language_&quot;">
+      <created>1700471101237</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1700471101237</updated>
+    </task>
+    <task id="LOCAL-00033" summary="&quot;added check on doulble login&quot;">
+      <created>1700471217920</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1700471217920</updated>
+    </task>
+    <task id="LOCAL-00034" summary="&quot;added check on doulble login, add russian language&quot;">
+      <created>1700484932235</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1700484932235</updated>
+    </task>
+    <task id="LOCAL-00035" summary="&quot;added icon&quot;">
+      <created>1700486052855</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1700486052855</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -600,7 +653,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="pagging" />
+                        <option value="refactoring" />
                       </list>
                     </value>
                   </entry>
@@ -613,11 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;add ability to navigate between screens &quot;" />
-    <MESSAGE value="&quot;add ability to navigate between screens_ &quot;" />
-    <MESSAGE value="&quot;add ability to navigate between screens2 &quot;" />
-    <MESSAGE value="&quot; mdViewModel exist&quot;" />
-    <MESSAGE value="&quot;something works&quot;" />
     <MESSAGE value="&quot;add room, but not well&quot;" />
     <MESSAGE value="&quot;add login database_&quot;" />
     <MESSAGE value="&quot;add login database__&quot;" />
@@ -638,7 +686,12 @@
     <MESSAGE value="&quot;paging (draft_)&quot;" />
     <MESSAGE value="&quot;paging is working&quot;" />
     <MESSAGE value="&quot;add paging, fix commits&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;add paging, fix commits&quot;" />
+    <MESSAGE value="&quot;added russian language&quot;" />
+    <MESSAGE value="&quot;added russian language_&quot;" />
+    <MESSAGE value="&quot;added check on doulble login&quot;" />
+    <MESSAGE value="&quot;added check on doulble login, add russian language&quot;" />
+    <MESSAGE value="&quot;added icon&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;added icon&quot;" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
