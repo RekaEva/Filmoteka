@@ -91,7 +91,6 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
                     top = 10.dp
                 )
         )
-
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
@@ -138,10 +137,6 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
 
         OutlinedButton(
             onClick = {
-                uiState.isPasswordValid = true
-                uiState.isLoginValid = true
-                uiState.isLoginUnique = true
-                uiState.isPasswordsSame = true
                 signUpViewModel.register(login, password, password2, email)
             },
             modifier = Modifier
@@ -153,23 +148,14 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
                 textAlign = TextAlign.Center
             )
         }
-        if (!uiState.isLoginUnique) {
-            messageText(stringResource(R.string.login_already_exist))
-        }
-        if (!uiState.isLoginValid) {
-            messageText(stringResource(R.string.login_lenght_incorrect))
-        }
-        if (!uiState.isPasswordsSame) {
-            messageText(stringResource(R.string.passwords_not_similar))
-        }
-        if (!uiState.isPasswordValid) {
-            messageText(stringResource(R.string.password_len_incorrect))
+        if (uiState.errorText != null) {
+            MessageText(uiState.errorText!!)
         }
     }
 }
 
 @Composable
-fun messageText(text: String) {
+fun MessageText(text: String) {
     Text(
         text = text,
         style = messageText,

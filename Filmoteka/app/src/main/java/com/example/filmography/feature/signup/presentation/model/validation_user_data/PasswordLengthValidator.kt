@@ -1,9 +1,16 @@
 package com.example.filmography.feature.signup.presentation.model.validation_user_data
 
-class PasswordLengthValidator : SignUpValidator {
-    override fun validate(login: String, password: String, password2: String): ValidationError? {
+import com.example.filmography.R
+import javax.inject.Inject
+
+class PasswordLengthValidator @Inject constructor(
+    private val error: StringResource
+) : SignUpValidator {
+    override suspend fun validate(
+        login: String, password: String, password2: String
+    ): String? {
         if (password.length < 4) {
-            return ValidationError.PASSWORD_LENGTH
+            return error.getString(R.string.password_len_incorrect)
         }
         return null
     }
