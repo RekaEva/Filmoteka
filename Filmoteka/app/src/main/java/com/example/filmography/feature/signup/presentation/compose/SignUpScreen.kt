@@ -40,6 +40,7 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
     var login by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var password2 by remember { mutableStateOf("") }
+
     val uiState by signUpViewModel.uiState.collectAsState()
 
     Column(
@@ -90,7 +91,6 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
                     top = 10.dp
                 )
         )
-
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
@@ -141,25 +141,26 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel) {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(
-                    bottom = 10.dp,
-                    top = 10.dp
-                )
-        )
-        {
+                .padding(bottom = 10.dp, top = 10.dp)
+        ) {
             Text(
                 text = stringResource(R.string.sign_up_button),
                 textAlign = TextAlign.Center
             )
         }
-        if (!uiState.isPasswordsSame) {
-            Text(
-                text = stringResource(R.string.passwords_not_similar),
-                style = messageText,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 15.dp)
-            )
+        if (uiState.errorText != null) {
+            MessageText(uiState.errorText!!)
         }
     }
+}
+
+@Composable
+fun MessageText(text: String) {
+    Text(
+        text = text,
+        style = messageText,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 15.dp)
+    )
 }

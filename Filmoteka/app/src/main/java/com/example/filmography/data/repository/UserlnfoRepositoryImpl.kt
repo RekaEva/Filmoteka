@@ -7,6 +7,11 @@ import javax.inject.Inject
 
 class UserInfoRepositoryImpl @Inject constructor(private val userDao: UserDao) :
     UserInfoRepository {
+    override suspend fun checkUserLogin(login: String): Boolean {
+        val checkUser = userDao.getUser(login)
+        return checkUser == null
+    }
+
     override suspend fun addUser(login: String, password: String, email: String) {
         val user = UserInfo(login, password, email)
         userDao.insert(user)

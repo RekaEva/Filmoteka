@@ -22,7 +22,10 @@ interface AppApi {
 }
 
 @Singleton
-@Component(modules = [AppModule::class, NavigationModule::class, UserDataModule::class, NetworkModule::class])
+@Component(
+    modules = [AppModule::class, NavigationModule::class,
+        UserDataModule::class, NetworkModule::class]
+)
 interface AppComponent : AppApi {
     fun inject(activity: MainActivity)
 

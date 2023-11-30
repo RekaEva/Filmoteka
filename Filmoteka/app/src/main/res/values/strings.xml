@@ -6,13 +6,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
     <string name="welcome_header">Welcome!</string>
     <string name="do_log_in">Login</string>
     <string name="do_sign_up">Sign Up</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
 
     <string name="sign_up_header">Please, sign up</string>
     <string name="set_email">Enter your email</string>
@@ -29,9 +26,10 @@
     <string name="create_account">Create new account</string>
 
     <string name="data_incorrect">Check login or password</string>
-    <string name="login_incorrect">Login is incorrect</string>
-    <string name="password_incorrect">Password is incorrect</string>
+    <string name="login_already_exist"> This login already exist</string>
     <string name="passwords_not_similar"> The entered passwords do not match</string>
+    <string name="login_lenght_incorrect"> Login is too short (minimum two characters) </string>
+    <string name="password_len_incorrect"> Password is too short (minimum four characters)</string>
     <string name="sign_up_successful"> Registration successful</string>
 
     <string name="movieInfo_year">Year: </string>
@@ -40,4 +38,5 @@
 
     <string name="update_button"> Try again </string>
     <string name="internet_connection_error">Check your internet connection</string>
+
 </resources>
