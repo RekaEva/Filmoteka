@@ -11,7 +11,7 @@ class DuplicateLogin @Inject constructor(
     private val registerUser: RegisterUserUseCaseImpl
 ) : SignUpValidator {
     override suspend fun validate(login: String, password: String, password2: String): String? {
-        val isLoginUnique = withContext(Dispatchers.Default) {
+        val isLoginUnique = withContext(Dispatchers.IO) {
             registerUser.checkUserLogin(login)
         }
         if (!isLoginUnique) {
