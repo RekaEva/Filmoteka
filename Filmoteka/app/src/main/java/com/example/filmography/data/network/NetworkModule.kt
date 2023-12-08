@@ -1,15 +1,19 @@
 package com.example.filmography.data.network
 
+import android.content.Context
+import com.example.filmography.data.cache.CacheInterceptor
 import com.example.filmography.data.remoute.MovieInfoApi
 import com.example.filmography.data.repository.MovieInfoRepositoryImpl
 import com.example.filmography.domain.useCases.movieInfo.MovieInfoRepository
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 import javax.inject.Singleton
 
 @Module
@@ -33,15 +37,25 @@ class NetworkModule {
             .build()
     }
 
+
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(context: Context): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        val cache = createCache(context)
         return OkHttpClient.Builder()
+            .addNetworkInterceptor(CacheInterceptor())
             .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(ApiKeyInterceptor())
+            .cache(cache)
             .build()
+    }
+
+    private fun createCache(context: Context): Cache {
+        val cacheSize = 10 * 1024 * 1024
+        val cacheDir = File(context.cacheDir, "http-cache")
+        return Cache(cacheDir, cacheSize.toLong())
     }
 
     @Provides
@@ -51,5 +65,3 @@ class NetworkModule {
     }
 
 }
-
-
