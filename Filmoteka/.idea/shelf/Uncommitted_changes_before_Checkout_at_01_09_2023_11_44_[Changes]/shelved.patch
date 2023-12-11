@@ -1,0 +1,662 @@
+Index: app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImp.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.data.repository\r\n\r\nimport com.example.filmography.data.database.users.userInfoDatabase\r\nimport javax.inject.Inject\r\n\r\nclass UserlnfoRepositoryImp @Inject constructor(\r\n    private val localDataSource: userInfoDatabase,\r\n//    private val remouteSource: MovieRemouteSource\r\n) : UserInfoRepository {\r\n\r\n\r\n    override fun method() {\r\n        localDataSource.method()\r\n//        remouteSource.method()\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImp.kt b/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImp.kt
+--- a/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImp.kt	
++++ b/app/src/main/java/com/example/filmography/data/repository/UserlnfoRepositoryImp.kt	
+@@ -1,6 +1,7 @@
+ package com.example.filmography.data.repository
+ 
+ import com.example.filmography.data.database.users.userInfoDatabase
++import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
+ import javax.inject.Inject
+ 
+ class UserlnfoRepositoryImp @Inject constructor(
+Index: app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation\r\n\r\nimport android.os.Bundle\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport androidx.lifecycle.ViewModelProvider\r\nimport com.example.filmography.R\r\nimport com.example.filmography.di.App\r\nimport com.example.filmography.di.ComponentManager\r\nimport com.example.filmography.presentation.viewModels.UserViewModel\r\nimport com.example.filmography.presentation.viewModels.ViewModelFactory\r\nimport javax.inject.Inject\r\n\r\nclass MainActivity : AppCompatActivity() {\r\n\r\n    @Inject\r\n    lateinit var userModelFactory: ViewModelFactory\r\n\r\n    private val userViewModel by lazy {\r\n        ViewModelProvider(this, userModelFactory)[UserViewModel::class.java]\r\n    }\r\n\r\n    private val component by lazy {\r\n        ComponentManager.appComponent\r\n    }\r\n\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        component.inject(this)\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_main)\r\n        userViewModel.method()\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/MainActivity.kt b/app/src/main/java/com/example/filmography/presentation/MainActivity.kt
+--- a/app/src/main/java/com/example/filmography/presentation/MainActivity.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/MainActivity.kt	
+@@ -4,7 +4,6 @@
+ import androidx.appcompat.app.AppCompatActivity
+ import androidx.lifecycle.ViewModelProvider
+ import com.example.filmography.R
+-import com.example.filmography.di.App
+ import com.example.filmography.di.ComponentManager
+ import com.example.filmography.presentation.viewModels.UserViewModel
+ import com.example.filmography.presentation.viewModels.ViewModelFactory
+Index: app/src/main/java/com/example/filmography/di/AppModule.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.di\r\n\r\nimport com.example.filmography.data.repository.UserlnfoRepositoryImp\r\nimport com.example.filmography.data.repository.UserInfoRepository\r\nimport dagger.Binds\r\nimport dagger.Module\r\n\r\n@Module\r\ninterface AppModule {\r\n    @Binds\r\n    fun bindRepository(impl: UserlnfoRepositoryImp): UserInfoRepository\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/di/AppModule.kt b/app/src/main/java/com/example/filmography/di/AppModule.kt
+--- a/app/src/main/java/com/example/filmography/di/AppModule.kt	
++++ b/app/src/main/java/com/example/filmography/di/AppModule.kt	
+@@ -1,7 +1,7 @@
+ package com.example.filmography.di
+ 
+ import com.example.filmography.data.repository.UserlnfoRepositoryImp
+-import com.example.filmography.data.repository.UserInfoRepository
++import com.example.filmography.domain.useCases.userInfo.UserInfoRepository
+ import dagger.Binds
+ import dagger.Module
+ 
+Index: app/src/main/java/com/example/filmography/presentation/screens/SignUpScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.screens\r\n\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport androidx.compose.foundation.background\r\nimport androidx.compose.foundation.layout.*\r\nimport androidx.compose.foundation.text.KeyboardOptions\r\nimport androidx.compose.material.Icon\r\nimport androidx.compose.material.OutlinedButton\r\nimport androidx.compose.material.OutlinedTextField\r\nimport androidx.compose.material.Text\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.Email\r\nimport androidx.compose.material.icons.filled.Lock\r\nimport androidx.compose.material.icons.filled.Person\r\nimport androidx.compose.runtime.*\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.graphics.Color\r\nimport androidx.compose.ui.platform.ComposeView\r\nimport androidx.compose.ui.platform.LocalContext\r\nimport androidx.compose.ui.res.stringResource\r\nimport androidx.compose.ui.text.input.KeyboardType\r\nimport androidx.compose.ui.text.input.PasswordVisualTransformation\r\nimport androidx.compose.ui.text.style.TextAlign\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.fragment.app.Fragment\r\nimport com.example.filmography.R\r\nimport com.example.filmography.presentation.ui.headerTextStyle\r\nimport com.example.filmography.presentation.viewModels.registr\r\n\r\n\r\nclass RegictrationFragment : Fragment() {\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View {\r\n        return ComposeView(requireContext()).apply {\r\n            setContent {\r\n                RegistrScreen()\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n@Composable\r\nfun  RegistrScreen() {\r\n    var email by remember { mutableStateOf(\"\") }\r\n    var login by remember { mutableStateOf(\"\") }\r\n    var password by remember { mutableStateOf(\"\") }\r\n    var password2 by remember { mutableStateOf(\"\") }\r\n    val context = LocalContext.current\r\n\r\n    Column(\r\n        modifier = Modifier\r\n            .fillMaxSize()\r\n            .background(color = Color.White),\r\n        verticalArrangement = Arrangement.Center,\r\n        horizontalAlignment = Alignment.CenterHorizontally,\r\n    ) {\r\n        Text(\r\n            text = stringResource(R.string.SignUpHeader),\r\n            style = headerTextStyle,\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(bottom = 15.dp)\r\n        )\r\n        OutlinedTextField(\r\n            value = email,\r\n            onValueChange = { email = it },\r\n            label = { Text(stringResource(R.string.SetEmail)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Email,\r\n                    contentDescription = \"email\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                )\r\n        )\r\n        OutlinedTextField(\r\n            value = login,\r\n            onValueChange = { login = it },\r\n            label = { Text(stringResource(R.string.SetLogin)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Person,\r\n                    contentDescription = \"person\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                )\r\n        )\r\n\r\n        OutlinedTextField(\r\n            value = password,\r\n            onValueChange = { password = it },\r\n            label = { Text(stringResource(R.string.SetPassword)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Lock,\r\n                    contentDescription = \"password\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                ),\r\n            visualTransformation = PasswordVisualTransformation(),\r\n            keyboardOptions = KeyboardOptions(\r\n                keyboardType = KeyboardType.Password\r\n            )\r\n        )\r\n\r\n        OutlinedTextField(\r\n            value = password2,\r\n            onValueChange = { password2 = it },\r\n            label = { Text(stringResource(R.string.RepeatPassword)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Lock,\r\n                    contentDescription = \"password\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                ),\r\n            visualTransformation = PasswordVisualTransformation(),\r\n            keyboardOptions = KeyboardOptions(\r\n                keyboardType = KeyboardType.Password\r\n            )\r\n        )\r\n\r\n        OutlinedButton(\r\n            onClick = { registr(login, password, password2, context) },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                )\r\n        )\r\n        {\r\n            Text(\r\n                text = stringResource(R.string.SignUpButton),\r\n                textAlign = TextAlign.Center\r\n            )\r\n        }\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/SignUpScreen.kt b/app/src/main/java/com/example/filmography/presentation/screens/SignUpScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/SignUpScreen.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/screens/SignUpScreen.kt	
+@@ -1,166 +1,166 @@
+ package com.example.filmography.presentation.screens
+ 
+-import android.os.Bundle
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import androidx.compose.foundation.background
+-import androidx.compose.foundation.layout.*
+-import androidx.compose.foundation.text.KeyboardOptions
+-import androidx.compose.material.Icon
+-import androidx.compose.material.OutlinedButton
+-import androidx.compose.material.OutlinedTextField
+-import androidx.compose.material.Text
+-import androidx.compose.material.icons.Icons
+-import androidx.compose.material.icons.filled.Email
+-import androidx.compose.material.icons.filled.Lock
+-import androidx.compose.material.icons.filled.Person
+-import androidx.compose.runtime.*
+-import androidx.compose.ui.Alignment
+-import androidx.compose.ui.Modifier
+-import androidx.compose.ui.graphics.Color
+-import androidx.compose.ui.platform.ComposeView
+-import androidx.compose.ui.platform.LocalContext
+-import androidx.compose.ui.res.stringResource
+-import androidx.compose.ui.text.input.KeyboardType
+-import androidx.compose.ui.text.input.PasswordVisualTransformation
+-import androidx.compose.ui.text.style.TextAlign
+-import androidx.compose.ui.unit.dp
+-import androidx.fragment.app.Fragment
+-import com.example.filmography.R
+-import com.example.filmography.presentation.ui.headerTextStyle
+-import com.example.filmography.presentation.viewModels.registr
+-
+-
+-class RegictrationFragment : Fragment() {
+-    override fun onCreateView(
+-        inflater: LayoutInflater,
+-        container: ViewGroup?,
+-        savedInstanceState: Bundle?
+-    ): View {
+-        return ComposeView(requireContext()).apply {
+-            setContent {
+-                RegistrScreen()
+-            }
+-        }
+-    }
+-}
+-
+-@Composable
+-fun  RegistrScreen() {
+-    var email by remember { mutableStateOf("") }
+-    var login by remember { mutableStateOf("") }
+-    var password by remember { mutableStateOf("") }
+-    var password2 by remember { mutableStateOf("") }
+-    val context = LocalContext.current
+-
+-    Column(
+-        modifier = Modifier
+-            .fillMaxSize()
+-            .background(color = Color.White),
+-        verticalArrangement = Arrangement.Center,
+-        horizontalAlignment = Alignment.CenterHorizontally,
+-    ) {
+-        Text(
+-            text = stringResource(R.string.SignUpHeader),
+-            style = headerTextStyle,
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(bottom = 15.dp)
+-        )
+-        OutlinedTextField(
+-            value = email,
+-            onValueChange = { email = it },
+-            label = { Text(stringResource(R.string.SetEmail)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Email,
+-                    contentDescription = "email"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                )
+-        )
+-        OutlinedTextField(
+-            value = login,
+-            onValueChange = { login = it },
+-            label = { Text(stringResource(R.string.SetLogin)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Person,
+-                    contentDescription = "person"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                )
+-        )
+-
+-        OutlinedTextField(
+-            value = password,
+-            onValueChange = { password = it },
+-            label = { Text(stringResource(R.string.SetPassword)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Lock,
+-                    contentDescription = "password"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                ),
+-            visualTransformation = PasswordVisualTransformation(),
+-            keyboardOptions = KeyboardOptions(
+-                keyboardType = KeyboardType.Password
+-            )
+-        )
+-
+-        OutlinedTextField(
+-            value = password2,
+-            onValueChange = { password2 = it },
+-            label = { Text(stringResource(R.string.RepeatPassword)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Lock,
+-                    contentDescription = "password"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                ),
+-            visualTransformation = PasswordVisualTransformation(),
+-            keyboardOptions = KeyboardOptions(
+-                keyboardType = KeyboardType.Password
+-            )
+-        )
+-
+-        OutlinedButton(
+-            onClick = { registr(login, password, password2, context) },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                )
+-        )
+-        {
+-            Text(
+-                text = stringResource(R.string.SignUpButton),
+-                textAlign = TextAlign.Center
+-            )
+-        }
+-    }
+-}
+\ No newline at end of file
++//import android.os.Bundle
++//import android.view.LayoutInflater
++//import android.view.View
++//import android.view.ViewGroup
++//import androidx.compose.foundation.background
++//import androidx.compose.foundation.layout.*
++//import androidx.compose.foundation.text.KeyboardOptions
++//import androidx.compose.material.Icon
++//import androidx.compose.material.OutlinedButton
++//import androidx.compose.material.OutlinedTextField
++//import androidx.compose.material.Text
++//import androidx.compose.material.icons.Icons
++//import androidx.compose.material.icons.filled.Email
++//import androidx.compose.material.icons.filled.Lock
++//import androidx.compose.material.icons.filled.Person
++//import androidx.compose.runtime.*
++//import androidx.compose.ui.Alignment
++//import androidx.compose.ui.Modifier
++//import androidx.compose.ui.graphics.Color
++//import androidx.compose.ui.platform.ComposeView
++//import androidx.compose.ui.platform.LocalContext
++//import androidx.compose.ui.res.stringResource
++//import androidx.compose.ui.text.input.KeyboardType
++//import androidx.compose.ui.text.input.PasswordVisualTransformation
++//import androidx.compose.ui.text.style.TextAlign
++//import androidx.compose.ui.unit.dp
++//import androidx.fragment.app.Fragment
++//import com.example.filmography.R
++//import com.example.filmography.presentation.ui.headerTextStyle
++//import com.example.filmography.presentation.viewModels.registr
++//
++//
++//class RegictrationFragment : Fragment() {
++//    override fun onCreateView(
++//        inflater: LayoutInflater,
++//        container: ViewGroup?,
++//        savedInstanceState: Bundle?
++//    ): View {
++//        return ComposeView(requireContext()).apply {
++//            setContent {
++//                RegistrScreen()
++//            }
++//        }
++//    }
++//}
++//
++//@Composable
++//fun  RegistrScreen() {
++//    var email by remember { mutableStateOf("") }
++//    var login by remember { mutableStateOf("") }
++//    var password by remember { mutableStateOf("") }
++//    var password2 by remember { mutableStateOf("") }
++//    val context = LocalContext.current
++//
++//    Column(
++//        modifier = Modifier
++//            .fillMaxSize()
++//            .background(color = Color.White),
++//        verticalArrangement = Arrangement.Center,
++//        horizontalAlignment = Alignment.CenterHorizontally,
++//    ) {
++//        Text(
++//            text = stringResource(R.string.SignUpHeader),
++//            style = headerTextStyle,
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(bottom = 15.dp)
++//        )
++//        OutlinedTextField(
++//            value = email,
++//            onValueChange = { email = it },
++//            label = { Text(stringResource(R.string.SetEmail)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Email,
++//                    contentDescription = "email"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                )
++//        )
++//        OutlinedTextField(
++//            value = login,
++//            onValueChange = { login = it },
++//            label = { Text(stringResource(R.string.SetLogin)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Person,
++//                    contentDescription = "person"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                )
++//        )
++//
++//        OutlinedTextField(
++//            value = password,
++//            onValueChange = { password = it },
++//            label = { Text(stringResource(R.string.SetPassword)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Lock,
++//                    contentDescription = "password"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                ),
++//            visualTransformation = PasswordVisualTransformation(),
++//            keyboardOptions = KeyboardOptions(
++//                keyboardType = KeyboardType.Password
++//            )
++//        )
++//
++//        OutlinedTextField(
++//            value = password2,
++//            onValueChange = { password2 = it },
++//            label = { Text(stringResource(R.string.RepeatPassword)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Lock,
++//                    contentDescription = "password"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                ),
++//            visualTransformation = PasswordVisualTransformation(),
++//            keyboardOptions = KeyboardOptions(
++//                keyboardType = KeyboardType.Password
++//            )
++//        )
++//
++//        OutlinedButton(
++//            onClick = { registr(login, password, password2, context) },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                )
++//        )
++//        {
++//            Text(
++//                text = stringResource(R.string.SignUpButton),
++//                textAlign = TextAlign.Center
++//            )
++//        }
++//    }
++//}
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/MoviesListFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.screens\r\n\r\nclass MoviesListFragment {\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/MoviesListFragment.kt b/app/src/main/java/com/example/filmography/presentation/screens/MoviesListFragment.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/MoviesListFragment.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/screens/MoviesListFragment.kt	
+@@ -1,4 +1,4 @@
+ package com.example.filmography.presentation.screens
+ 
+-class MoviesListFragment {
+-}
+\ No newline at end of file
++//class MoviesListFragment {
++//}
+\ No newline at end of file
+Index: app/src/main/java/com/example/filmography/presentation/screens/LoginScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.filmography.presentation.screens\r\n\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport androidx.compose.foundation.layout.*\r\nimport androidx.compose.foundation.text.KeyboardOptions\r\nimport androidx.compose.material.Icon\r\nimport androidx.compose.material.OutlinedButton\r\nimport androidx.compose.material.OutlinedTextField\r\nimport androidx.compose.material.Text\r\nimport androidx.compose.material.icons.Icons\r\nimport androidx.compose.material.icons.filled.Lock\r\nimport androidx.compose.material.icons.filled.Person\r\nimport androidx.compose.runtime.*\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.platform.ComposeView\r\nimport androidx.compose.ui.res.stringResource\r\nimport androidx.compose.ui.text.input.KeyboardType\r\nimport androidx.compose.ui.text.input.PasswordVisualTransformation\r\nimport androidx.compose.ui.text.style.TextAlign\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.fragment.app.Fragment\r\nimport com.example.filmography.R\r\nimport com.example.filmography.presentation.ui.headerTextStyle\r\nimport com.example.filmography.presentation.viewModels.logged\r\n\r\n\r\nclass AutenticationFragment : Fragment() {\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View {\r\n        return ComposeView(requireContext()).apply {\r\n            setContent {\r\n                AuthScreen()\r\n            }\r\n        }\r\n    }\r\n\r\n}\r\n\r\n@Composable\r\nfun AuthScreen() {\r\n    var login by remember { mutableStateOf(\"\") }\r\n    var password by remember { mutableStateOf(\"\") }\r\n\r\n    Column(\r\n        modifier = Modifier.fillMaxSize(),\r\n        verticalArrangement = Arrangement.Center,\r\n        horizontalAlignment = Alignment.CenterHorizontally,\r\n    ) {\r\n        Text(\r\n            text = stringResource(R.string.LoginHeader),\r\n            style = headerTextStyle,\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(bottom = 15.dp)\r\n        )\r\n        OutlinedTextField(\r\n            value = login,\r\n            onValueChange = { login = it },\r\n            label = { Text(stringResource(R.string.EnterLogin)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Person,\r\n                    contentDescription = \"person\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(bottom = 10.dp, top = 10.dp)\r\n        )\r\n\r\n        OutlinedTextField(\r\n            value = password,\r\n            onValueChange = { password = it },\r\n            label = { Text(stringResource(R.string.EnterPassword)) },\r\n            leadingIcon = {\r\n                Icon(\r\n                    Icons.Default.Lock,\r\n                    contentDescription = \"password\"\r\n                )\r\n            },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(\r\n                    bottom = 10.dp,\r\n                    top = 10.dp\r\n                ),\r\n            visualTransformation = PasswordVisualTransformation(),\r\n            keyboardOptions = KeyboardOptions(\r\n                keyboardType = KeyboardType.Password\r\n            )\r\n        )\r\n\r\n        OutlinedButton(\r\n            onClick = { logged(login, password) },\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n                .padding(bottom = 10.dp, top = 10.dp)\r\n        )\r\n        {\r\n            Text(\r\n                text = stringResource(R.string.LoginButton),\r\n                textAlign = TextAlign.Center\r\n            )\r\n        }\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/screens/LoginScreen.kt b/app/src/main/java/com/example/filmography/presentation/screens/LoginScreen.kt
+--- a/app/src/main/java/com/example/filmography/presentation/screens/LoginScreen.kt	
++++ b/app/src/main/java/com/example/filmography/presentation/screens/LoginScreen.kt	
+@@ -1,114 +1,114 @@
+ package com.example.filmography.presentation.screens
+ 
+-import android.os.Bundle
+-import android.view.LayoutInflater
+-import android.view.View
+-import android.view.ViewGroup
+-import androidx.compose.foundation.layout.*
+-import androidx.compose.foundation.text.KeyboardOptions
+-import androidx.compose.material.Icon
+-import androidx.compose.material.OutlinedButton
+-import androidx.compose.material.OutlinedTextField
+-import androidx.compose.material.Text
+-import androidx.compose.material.icons.Icons
+-import androidx.compose.material.icons.filled.Lock
+-import androidx.compose.material.icons.filled.Person
+-import androidx.compose.runtime.*
+-import androidx.compose.ui.Alignment
+-import androidx.compose.ui.Modifier
+-import androidx.compose.ui.platform.ComposeView
+-import androidx.compose.ui.res.stringResource
+-import androidx.compose.ui.text.input.KeyboardType
+-import androidx.compose.ui.text.input.PasswordVisualTransformation
+-import androidx.compose.ui.text.style.TextAlign
+-import androidx.compose.ui.unit.dp
+-import androidx.fragment.app.Fragment
+-import com.example.filmography.R
+-import com.example.filmography.presentation.ui.headerTextStyle
+-import com.example.filmography.presentation.viewModels.logged
+-
+-
+-class AutenticationFragment : Fragment() {
+-    override fun onCreateView(
+-        inflater: LayoutInflater,
+-        container: ViewGroup?,
+-        savedInstanceState: Bundle?
+-    ): View {
+-        return ComposeView(requireContext()).apply {
+-            setContent {
+-                AuthScreen()
+-            }
+-        }
+-    }
+-
+-}
+-
+-@Composable
+-fun AuthScreen() {
+-    var login by remember { mutableStateOf("") }
+-    var password by remember { mutableStateOf("") }
+-
+-    Column(
+-        modifier = Modifier.fillMaxSize(),
+-        verticalArrangement = Arrangement.Center,
+-        horizontalAlignment = Alignment.CenterHorizontally,
+-    ) {
+-        Text(
+-            text = stringResource(R.string.LoginHeader),
+-            style = headerTextStyle,
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(bottom = 15.dp)
+-        )
+-        OutlinedTextField(
+-            value = login,
+-            onValueChange = { login = it },
+-            label = { Text(stringResource(R.string.EnterLogin)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Person,
+-                    contentDescription = "person"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(bottom = 10.dp, top = 10.dp)
+-        )
+-
+-        OutlinedTextField(
+-            value = password,
+-            onValueChange = { password = it },
+-            label = { Text(stringResource(R.string.EnterPassword)) },
+-            leadingIcon = {
+-                Icon(
+-                    Icons.Default.Lock,
+-                    contentDescription = "password"
+-                )
+-            },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(
+-                    bottom = 10.dp,
+-                    top = 10.dp
+-                ),
+-            visualTransformation = PasswordVisualTransformation(),
+-            keyboardOptions = KeyboardOptions(
+-                keyboardType = KeyboardType.Password
+-            )
+-        )
+-
+-        OutlinedButton(
+-            onClick = { logged(login, password) },
+-            modifier = Modifier
+-                .fillMaxWidth()
+-                .padding(bottom = 10.dp, top = 10.dp)
+-        )
+-        {
+-            Text(
+-                text = stringResource(R.string.LoginButton),
+-                textAlign = TextAlign.Center
+-            )
+-        }
+-
+-    }
+-}
++//import android.os.Bundle
++//import android.view.LayoutInflater
++//import android.view.View
++//import android.view.ViewGroup
++//import androidx.compose.foundation.layout.*
++//import androidx.compose.foundation.text.KeyboardOptions
++//import androidx.compose.material.Icon
++//import androidx.compose.material.OutlinedButton
++//import androidx.compose.material.OutlinedTextField
++//import androidx.compose.material.Text
++//import androidx.compose.material.icons.Icons
++//import androidx.compose.material.icons.filled.Lock
++//import androidx.compose.material.icons.filled.Person
++//import androidx.compose.runtime.*
++//import androidx.compose.ui.Alignment
++//import androidx.compose.ui.Modifier
++//import androidx.compose.ui.platform.ComposeView
++//import androidx.compose.ui.res.stringResource
++//import androidx.compose.ui.text.input.KeyboardType
++//import androidx.compose.ui.text.input.PasswordVisualTransformation
++//import androidx.compose.ui.text.style.TextAlign
++//import androidx.compose.ui.unit.dp
++//import androidx.fragment.app.Fragment
++//import com.example.filmography.R
++//import com.example.filmography.presentation.ui.headerTextStyle
++//import com.example.filmography.presentation.viewModels.logged
++//
++//
++//class AutenticationFragment : Fragment() {
++//    override fun onCreateView(
++//        inflater: LayoutInflater,
++//        container: ViewGroup?,
++//        savedInstanceState: Bundle?
++//    ): View {
++//        return ComposeView(requireContext()).apply {
++//            setContent {
++//                AuthScreen()
++//            }
++//        }
++//    }
++//
++//}
++//
++//@Composable
++//fun AuthScreen() {
++//    var login by remember { mutableStateOf("") }
++//    var password by remember { mutableStateOf("") }
++//
++//    Column(
++//        modifier = Modifier.fillMaxSize(),
++//        verticalArrangement = Arrangement.Center,
++//        horizontalAlignment = Alignment.CenterHorizontally,
++//    ) {
++//        Text(
++//            text = stringResource(R.string.LoginHeader),
++//            style = headerTextStyle,
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(bottom = 15.dp)
++//        )
++//        OutlinedTextField(
++//            value = login,
++//            onValueChange = { login = it },
++//            label = { Text(stringResource(R.string.EnterLogin)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Person,
++//                    contentDescription = "person"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(bottom = 10.dp, top = 10.dp)
++//        )
++//
++//        OutlinedTextField(
++//            value = password,
++//            onValueChange = { password = it },
++//            label = { Text(stringResource(R.string.EnterPassword)) },
++//            leadingIcon = {
++//                Icon(
++//                    Icons.Default.Lock,
++//                    contentDescription = "password"
++//                )
++//            },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(
++//                    bottom = 10.dp,
++//                    top = 10.dp
++//                ),
++//            visualTransformation = PasswordVisualTransformation(),
++//            keyboardOptions = KeyboardOptions(
++//                keyboardType = KeyboardType.Password
++//            )
++//        )
++//
++//        OutlinedButton(
++//            onClick = { logged(login, password) },
++//            modifier = Modifier
++//                .fillMaxWidth()
++//                .padding(bottom = 10.dp, top = 10.dp)
++//        )
++//        {
++//            Text(
++//                text = stringResource(R.string.LoginButton),
++//                textAlign = TextAlign.Center
++//            )
++//        }
++//
++//    }
++//}
+Index: app/src/main/java/com/example/filmography/presentation/preview/Login.kt
+===================================================================
+diff --git a/app/src/main/java/com/example/filmography/presentation/preview/Login.kt b/app/src/main/java/com/example/filmography/feature/login/presentation/compose/LoginPreview.kt
+rename from app/src/main/java/com/example/filmography/presentation/preview/Login.kt
+rename to app/src/main/java/com/example/filmography/feature/login/presentation/compose/LoginPreview.kt
+--- a/app/src/main/java/com/example/filmography/presentation/preview/Login.kt	
++++ b/app/src/main/java/com/example/filmography/feature/login/presentation/compose/LoginPreview.kt	
+@@ -1,4 +1,4 @@
+-package com.example.filmography.presentation.preview
++package com.example.filmography.feature.login.presentation.compose
+ 
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.tooling.preview.Preview
+diff --git a/app/src/main/java/com/example/filmography/presentation/preview/SignUp.kt b/app/src/main/java/com/example/filmography/feature/signup/presentation/compose/SignUpPreview.kt
+rename from app/src/main/java/com/example/filmography/presentation/preview/SignUp.kt
+rename to app/src/main/java/com/example/filmography/feature/signup/presentation/compose/SignUpPreview.kt

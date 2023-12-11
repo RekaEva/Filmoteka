@@ -1,6 +1,9 @@
 package com.example.filmography.room
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.filmography.data.database.users.UserInfo
 
 @Dao
