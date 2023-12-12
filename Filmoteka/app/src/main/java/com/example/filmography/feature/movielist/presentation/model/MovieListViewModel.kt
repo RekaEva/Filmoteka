@@ -10,7 +10,6 @@ class MovieListViewModel @Inject constructor(
     private val movieList: GetMovieListUseCaseImpl,
     private val router: Router
 ) : ViewModel() {
-
     fun getMovieListPaging() = movieList.getMovieListPagging()
 
 

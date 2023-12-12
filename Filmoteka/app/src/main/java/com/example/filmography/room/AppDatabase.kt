@@ -6,7 +6,8 @@ import com.example.filmography.data.database.users.UserInfo
 
 @Database(
     version = 1,
-    entities = [UserInfo::class]
+    entities = [UserInfo::class],
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
