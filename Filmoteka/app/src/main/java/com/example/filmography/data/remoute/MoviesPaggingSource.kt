@@ -1,5 +1,6 @@
 package com.example.filmography.data.remoute
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.filmography.data.database.movie.MovieData
@@ -22,7 +23,8 @@ class MoviesPaggingSource(
                 (params.loadSize * (page + 1)) < response.total -> page + 1
                 else -> null
             }
-            val prevKey = if (page == 0) null else page - 1
+            val prevKey = if (page == 1) null else page - 1
+            Log.d("az", page.toString())
             LoadResult.Page(
                 data = response.moviesList,
                 nextKey = nextKey,
