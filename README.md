@@ -2,7 +2,7 @@
 First steps in mobile development.
 
 Filmoteka - это учебный проект, цель которого изучение различных технологий и инструментов для создания приложений. Главная тема проекта - создание фильмотеки, где пользователи смогут просматривать список последних новинок и получать подробную информацию о фильмах. Также в приложении реализованы регистрация и авторизация пользователей. 
-При создании приложения были использованы библиотеки Dagger2, Cicerone, Retrofit, Gson, Room, Coil. Источником информации о фильмах служит Кинопоиск Api (https://kinopoisk.dev/)
+При создании приложения были использованы библиотеки Dagger2, Cicerone, Retrofit, Gson, Room, Coil, Jetpack Compose. Источником информации о фильмах служит Кинопоиск Api (https://kinopoisk.dev/)
 
 <img width="300"  src= "https://github.com/RekaEva/Internship/assets/104134879/5b1f6762-d5d6-4b3d-8553-12b890234359">
 <img width="300"  src= "https://github.com/RekaEva/Internship/assets/104134879/bfce41d7-d74f-4e22-960b-bb4f6a65e830">
